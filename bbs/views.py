@@ -7,7 +7,7 @@ from bbs.models import Article
 def index(request):
   articles = Article.objects.all()
   context = {
-      'message': 'Welcom my BBS',
+      'message': 'Welcom my Diary',
       'articles': articles,
     }
   return render(request,'bbs/index.html',context)
