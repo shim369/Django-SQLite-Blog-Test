@@ -11,4 +11,4 @@ class Article(models.Model):
 
 
   def __str__(self):
-    return self.content
+    return self.title
