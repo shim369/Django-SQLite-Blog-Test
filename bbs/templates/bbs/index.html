@@ -10,7 +10,7 @@
   <h1>paiza bbs</h1>
   <p>{{ message }}</p>
   {% for article in articles %}
-    <p>{{ article.content }}
+    <p>{{ article.title }}
       <a href="{% url "bbs:detail" article.id %}">detail</a>
     </p>
   {% endfor %}
