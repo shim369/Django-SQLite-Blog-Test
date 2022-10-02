@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+@import url("https://use.fontawesome.com/releases/v6.2.0/css/all.css");
+
+body {
+  background-color: #F5EEED;
+  color: #656464;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.tcenter {
+  text-align: center;
+}
+
+.tright {
+  text-align: right;
+}
+
+.clearfix {
+	display: block;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.wrapper {
+  overflow-x: hidden;
+}
+
+.blog-card-list {
+  display: flex;
+  .blog-card {
+    width: 250px;
+    background-color: #fff;
+    margin: 0 10px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    .blog-card-img {
+      width: 100%;
+      height: 150px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .blog-card-inner {
+      padding: 20px 10px;
+      h3 {
+        line-height: 1;
+        font-size: 1.3rem;
+        margin: 10px 0 0;
+        font-weight: 600;
+      }
+      p {
+        line-height: 1.3;
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+time {
+  i {
+    margin-right: 5px;
+  }
+}
+
+.btn1 {
+  background-color: #efa39b;
+  border: solid thin #efa39b;
+  color: #fff;
+  display: inline-block;
+  line-height: 1;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: center;
+  transition: all 0.9s ease;
+  &:before {
+    content: "\f105";
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    padding-right: 5px;
+  }
+  &:hover {
+    background-color: #fff;
+    color: #efa39b;
+  }
+}
+.main-sec {
+  .sec-inner {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 40px 5%;
+    .h1-title {
+      color: #f18174;
+      &:after {
+        content: "";
+        display: block;
+        height: 4px;
+        background: -webkit-linear-gradient(to right, #f18174, transparent);
+        background: linear-gradient(to right, #f18174, transparent);
+      }
+    }
+  }
+}

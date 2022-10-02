@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,14 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
-  <h1></h1>
-  <p>{{ message }}</p>
-  {% for article in articles %}
-    <p>{{ article.title }}
-      <a href="{% url "bbs:detail" article.id %}">detail</a>
-    </p>
-  {% endfor %}
+  <div class="wrapper">
+    <header>
+      <h1></h1>
+      <!-- <p>{{ message }}</p> -->
+    </header>
+    <main>
+      <section>
+        <h2></h2>
+        <ul class="blog-card-list">
+          {% for article in articles %}
+          <li class="blog-card">
+            <div class="blog-card-img" style="background-image: url('/media/{{ article.thumbnail_image }}');"></div>
+            <div class="blog-card-inner">
+              <time datetime=”{{ article.created_at|date:'Y-m-d' }}” itemprop=”datepublished”><i class="fas fa-clock"></i>{{ article.created_at|date:"Y.m.d" }}</time>
+              <h3>{{ article.title| truncatechars:12 }}</h3>
+              <p>{{ article.content| truncatechars:40 }}
+              </p>
+              <a href="{% url 'bbs:detail' article.id %}" class="btn1">記事を読む</a>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+    <footer>
+
+    </footer>
+  </div>
 </body>
 </html>
