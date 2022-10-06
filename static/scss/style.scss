@@ -112,5 +112,9 @@ time {
         background: linear-gradient(to right, #f18174, transparent);
       }
     }
+    h2 {
+      border-left: solid #f18174 5px;
+      padding-left: 10px;
+    }
   }
 }

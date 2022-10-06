@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <meta name="description" content="Djangoのテストアプリです。">
+  <title>Djangoのテストアプリ</title>
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
@@ -22,10 +23,9 @@
           <li class="blog-card">
             <div class="blog-card-img" style="background-image: url('/media/{{ article.thumbnail_image }}');"></div>
             <div class="blog-card-inner">
-              <time datetime=”{{ article.created_at|date:'Y-m-d' }}” itemprop=”datepublished”><i class="fas fa-clock"></i>{{ article.created_at|date:"Y.m.d" }}</time>
+              <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datepublished"><i class="fas fa-clock"></i>{{ article.created_at|date:"Y.m.d" }}</time>
               <h3>{{ article.title| truncatechars:12 }}</h3>
-              <p>{{ article.content| truncatechars:40 }}
-              </p>
+              <p>{{ article.description| truncatechars:40 }}</p>
               <a href="{% url 'bbs:detail' article.id %}" class="btn1">記事を読む</a>
             </div>
           </li>

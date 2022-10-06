@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ article.description }}">
   <title>{{ article.title }}</title>
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
@@ -18,8 +19,10 @@
       <section class="main-sec">
         <div class="sec-inner">
           <h1 class="h1-title">{{ article.title }}</h1>
-          <p>{{ article.content }}</p>
-          <p class="tright">公開日：<time datetime=”{{ article.created_at|date:'Y-m-d' }}” itemprop=”datepublished”>{{ article.created_at|date:"Y.m.d" }}</time><br>
+          {% autoescape off %}
+          <div>{{ article.content | safe }}</div>
+          {% endautoescape %}
+          <p class="tright">公開日：<time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datepublished">{{ article.created_at|date:"Y.m.d" }}</time><br>
             更新日：<time datetime="{{ article.updated_at|date:'Y-m-d' }}" itemprop="modified">{{ article.updated_at|date:'Y.m.d' }}</time></p>
           <p class="tcenter"><a href='{% url "bbs:index" %}' class="btn1">記事一覧へ</a></p>
         </div>
