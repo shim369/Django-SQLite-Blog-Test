@@ -13,10 +13,9 @@ def index(request):
   return render(request,'bbs/index.html',context)
   # return HttpResponse('Hello Django')
 
-def detail(request, id):
-  article = get_object_or_404(Article, pk=id)
+def detail(request, slug):
+  article = get_object_or_404(Article, slug=slug)
   context = {
-    'message': 'Show Article' + str(id),
     'article': article,
   }
   return render(request,'bbs/detail.html',context)

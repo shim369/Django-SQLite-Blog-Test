@@ -26,7 +26,7 @@
               <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datepublished"><i class="fas fa-clock"></i>{{ article.created_at|date:"Y.m.d" }}</time>
               <h3>{{ article.title| truncatechars:12 }}</h3>
               <p>{{ article.description| truncatechars:40 }}</p>
-              <a href="{% url 'bbs:detail' article.id %}" class="btn1">記事を読む</a>
+              <a href="{% url 'bbs:detail' article.slug %}" class="btn1">記事を読む</a>
             </div>
           </li>
           {% endfor %}
