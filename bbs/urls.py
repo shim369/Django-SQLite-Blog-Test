@@ -5,5 +5,6 @@ app_name = 'bbs'
 
 urlpatterns = [
   path('',views.index, name='index'),
-  path('<slug:slug>/',views.detail, name='detail'),
+  path('category/<str:category>/', views.category, name='category'),
+  path('detail/<slug:slug>/',views.detail, name='detail'),
 ]

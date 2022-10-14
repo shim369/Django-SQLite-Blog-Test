@@ -17,6 +17,8 @@ a {
 
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .tcenter {
@@ -48,6 +50,7 @@ ul {
     background-color: #fff;
     margin: 0 10px;
     border: 1px solid rgba(0, 0, 0, 0.125);
+    position: relative;
     .blog-card-img {
       width: 100%;
       height: 150px;
@@ -57,6 +60,14 @@ ul {
     }
     .blog-card-inner {
       padding: 20px 10px;
+      .category {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #efa39b;
+        color: #fff;
+        padding: 5px 10px;
+      }
       h3 {
         line-height: 1;
         font-size: 1.3rem;
@@ -102,6 +113,15 @@ time {
   .sec-inner {
     background-color: rgba(255, 255, 255, 1);
     padding: 40px 5%;
+    position: relative;
+    .category {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: #efa39b;
+      color: #fff;
+      padding: 5px 15px;
+    }
     .h1-title {
       color: #f18174;
       &:after {

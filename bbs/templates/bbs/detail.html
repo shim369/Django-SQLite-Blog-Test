@@ -18,12 +18,13 @@
     <main>
       <section class="main-sec">
         <div class="sec-inner">
+          <span class="category">{{ article.category.name }}</span>
           <h1 class="h1-title">{{ article.title }}</h1>
           {% autoescape off %}
           <div>{{ article.content | safe }}</div>
           {% endautoescape %}
-          <p class="tright">公開日：<time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datepublished">{{ article.created_at|date:"Y.m.d" }}</time><br>
-            更新日：<time datetime="{{ article.updated_at|date:'Y-m-d' }}" itemprop="modified">{{ article.updated_at|date:'Y.m.d' }}</time></p>
+          <p class="tright"><time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datepublished"><i class="fas fa-clock"></i>{{ article.created_at|date:"Y/m/d" }}</time>
+            (<time datetime="{{ article.updated_at|date:'Y-m-d' }}" itemprop="modified"><i class="fas fa-refresh"></i>{{ article.updated_at|date:'Y/m/d' }}</time>)</p>
           <p class="tcenter"><a href='{% url "bbs:index" %}' class="btn1">記事一覧へ</a></p>
         </div>
       </section>

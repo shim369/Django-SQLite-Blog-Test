@@ -23,6 +23,7 @@
           <li class="blog-card">
             <div class="blog-card-img" style="background-image: url('/media/{{ article.thumbnail_image }}');"></div>
             <div class="blog-card-inner">
+              <div class="category">{{ article.category.name }}</div>
               <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datepublished"><i class="fas fa-clock"></i>{{ article.created_at|date:"Y.m.d" }}</time>
               <h3>{{ article.title| truncatechars:12 }}</h3>
               <p>{{ article.description| truncatechars:40 }}</p>
