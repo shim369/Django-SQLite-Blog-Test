@@ -1,0 +1,165 @@
+@import 'common';
+
+main {
+  .blog-sec {
+    .container {
+      padding-top: 80px;
+      @media screen and (max-width: 800px) {
+        padding-top: 10vh;
+        padding-bottom: 8vh;
+      }
+      article {
+        .article-sec {
+          background: #D9D9D9;
+          margin-bottom: 40px;
+          .thumbnail {
+            a {
+              display: block;
+              img {
+                width: 100%;
+                max-height: 400px;
+                object-fit: cover;
+                @media screen and (max-width: 800px) {
+                  max-height: 30vh;
+                }
+              }
+            }
+          }
+          
+          .article-head {
+            position: relative;
+            word-break: break-all;
+            line-height: 1.5;
+            font-size: 20px;
+            padding: 60px 40px 0;
+            .category {
+              position: absolute;
+              top: 0;
+              left: 0;
+              display: grid;
+              a {
+                color: #dadada;
+                padding: 10px 20px;
+                font-size: 20px;
+                background: #26272b;
+              }
+            }
+            .article-title {
+              color: #26272b;
+              font-size: 1.5rem;
+              margin-top: 40px;
+              margin-bottom: 40px;
+              position: relative;
+              overflow: hidden;
+              z-index: 1;
+              @media screen and (max-width: 800px) {
+                font-size: 1.2rem;
+              }
+            }
+            .date {
+              text-align: left;
+              margin-bottom: 40px;
+              time {
+                i {
+                  padding-right: 3px;
+                }
+              }
+            }
+          }
+          .article-contents {
+            word-break: break-all;
+            line-height: 1.5;
+            font-size: 20px;
+            padding: 60px 40px;
+            @media screen and (max-width: 800px) {
+              padding: 30px 4%;
+            }
+            h2 {
+              background: #cbcbcb;
+              padding: 20px 15px 18px;
+              color: #26272b;
+              border-left: 9px solid #725e51;
+              line-height: 1.5;
+              margin-bottom: 40px;
+              font-size: 1.2rem;
+            }
+            h3 {
+              margin-bottom: 40px;
+              font-weight: 600;
+              letter-spacing: 1.6px;
+              padding: 0 15px;
+              border-left: 9px solid #725e51;
+              color: #26272b;
+              font-weight: 600;
+              margin-top: 60px;
+              font-size: 1.2rem;
+            }
+            p {
+              margin-bottom: 40px;
+              color: #26272b;
+              i {
+                padding-right: 10px;
+              }
+            }
+            ul {
+              background: #cbcbcb;
+              padding: 40px 30px 40px 60px;
+              margin-bottom: 30px;
+              @media screen and (max-width: 800px) {
+                padding: 40px 4% 40px 12%;
+              }
+              li {
+                list-style: disc;
+                margin-bottom: 10px;
+                color: #26272b;
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+            }
+            pre {
+              font-size: 18px;
+              background: #cbcbcb;
+              padding: 40px 25px;
+              color: #26272b;
+              line-height: 1.5;
+              margin-bottom: 40px;
+              white-space: pre-wrap;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  li {
+    display: inline;
+    list-style: none;
+    &::after {
+      content: '>';
+      padding: 0 0.2em;
+      color: #26272b;
+    }
+    &:first-child {
+      i {
+        margin-right: 3px;
+      }
+    }
+    &:last-child:after {
+      content: '';
+    }
+    a {
+      text-decoration: none;
+      color: #26272b;
+      word-break: break-all;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
