@@ -371,7 +371,7 @@ main {
             font-family: $font_en;
           }
           .wn-list {
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             li {
               display: flex;
               align-items: flex-start;
@@ -424,6 +424,7 @@ main {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            margin-bottom: 60px;
             li {
               width: 48%;
               margin: 0 0 15px;
@@ -434,7 +435,24 @@ main {
                 width: 100%;
                 display: block;
                 text-align: center;
-                font-family: $font_en;
+                transition: all .8s ease;
+                &:hover {
+                  opacity: .8;
+                }
+              }
+            }
+          }
+          .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            li {
+              margin: 0 10px 10px 0;
+              a {
+                padding: 10px 20px;
+                color: #dadada;
+                background: #26272b;
+                border-radius: 20px;
+                display: block;
                 transition: all .8s ease;
                 &:hover {
                   opacity: .8;
