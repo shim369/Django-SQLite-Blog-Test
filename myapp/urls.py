@@ -1,12 +1,13 @@
-from django.contrib import admin
 from django.urls import include, path
+from django.contrib import admin
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('bbs/', include('bbs.urls')),
+    # path('admin/', admin.site.urls),
     path('admin/', admin.site.urls),
+    path('', include('bbs.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
 
