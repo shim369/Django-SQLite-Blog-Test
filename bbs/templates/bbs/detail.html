@@ -89,32 +89,7 @@
 </head>
 <body id="top" itemscope itemtype="http://schema.org/WebPage">
 <div class="wrapper">
-<header>
-    <div class="container">
-      <p class="logo"><a href="{% url 'bbs:index' %}"><img src="/media/logo.svg" width="234" height="30" alt="TECH BLOG" loading="lazy"></a></p>
-      <nav id="header_nav" role="navigation" itemscope itemtype="http://scheme.org/SiteNavigationElement">
-        <ul class="globalNav">
-        <li itemprop="name"><a href="{% url 'bbs:index' %}" itemprop="url">HOME</a></li>
-        {% for category in category_list %}<li itemprop="name"><a href="{% url 'bbs:category' category %}">{{ category.name }}</a></li>{% endfor %}
-        <li class="li-icon">
-          <a href="https://github.com/shim369" target="_blank" itemprop="url"><i class="icon-github"></i></a>
-          <a href="" target="_blank" itemprop="url"><i class="icon-instagram"></i></a>
-        </li>
-        </ul>
-      </nav>
-      <div class="sp_nav">
-        <div class="menu-btn" id="js_btn">
-        <span data-txt-open="M" data-txt-close="C"></span>
-        <span data-txt-open="E" data-txt-close="L"></span>
-        <span data-txt-open="N" data-txt-close="O"></span>
-        <span data-txt-open="U" data-txt-close="S"></span>
-        <span data-txt-close="E"></span>
-        </div>
-        <nav class="menu" id="js_nav">
-        </nav>
-      </div>
-    </div>
-</header>
+{% include './_header.html' %}
 <main itemscope itemtype="https://schema.org/Blog">
   <section class="blog-sec">
   <div class="container">
@@ -124,7 +99,7 @@
       <meta itemscope itemprop="mainEntityOfPage"> 
       <section class="article-sec">
           <div class="article-head">
-            <p class="category"><a href="{% url 'bbs:category' article.category %}">{{ article.category }}</a></p>
+            <p class="category"><a href="{% url 'bbs:category' article.category %}#blog">{{ article.category }}</a></p>
             <h1 itemprop="headline" class="article-title">{{ article.title }}</h1>
             <p class="date">
               <time itemprop="datePublished" datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
@@ -147,100 +122,37 @@
             {% endautoescape %}
           </div>
       </section>
-    </article>
-    <aside>
-      <h3 class="aside-title">WHAT'S NEW</h3>
-      <ul class="wn-list">
-        {% for article in entries %}
-        <li>
-          <a href="{% url 'bbs:detail' article.slug %}">
-            <picture>
-              <source srcset="/media/{{ article.thumbnail_image }}" type="image/webp" width="82" height="82" loading="lazy" itemprop="image">
-              <img src="/media/{{ article.thumbnail_image }}" width="82" height="82" loading="lazy" itemprop="image" alt="">
-            </picture>
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="{% url "bbs:index" %}">
+              <span itemprop="name"><i class="icon-home3"></i>HOME</span>
           </a>
-          <div class="wn-list-sentence">
-            <time itemprop="datePublished" datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
-            <a href="">
-            <h4 itemprop="name headline">{{ article.title }}</h4>
-            </a>
-          </div>
+          <meta itemprop="position" content="1" />
         </li>
-        {% endfor %}
-      </ul>
-      <h3 class="aside-title">CATEGORY</h3>
-      <ul class="category-list">
-        {% for category in category_list %}
-        <li><a href="{% url 'bbs:category' category %}">{{ category.name }}</a></li>
-        {% endfor %}
-      </ul>
-      <h3 class="aside-title">TAG</h3>
-      <ul class="tag-list">
-        {% for tag in tag_list %}
-        <li><a href="{% url 'bbs:tag' tag %}">{{ tag.name }}</a></li>
-        {% endfor %}
-      </ul>
-    </aside>
+        <li itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="{% url 'bbs:category' article.category %}#blog">
+              <span itemprop="name">{{ article.category.name }}</span>
+          </a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <li itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="{% url 'bbs:detail' article.slug %}">
+              <span itemprop="name">{{ article.title }}</span>
+          </a>
+          <meta itemprop="position" content="3" />
+        </li>
+      </ol>
+    </article>
+    {% include './_aside.html' %}
   </div>
-  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{% url "bbs:index" %}">
-          <span itemprop="name"><i class="icon-home3"></i>HOME</span>
-      </a>
-      <meta itemprop="position" content="1" />
-    </li>
-  
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{% url 'bbs:category' article.category %}">
-          <span itemprop="name">{{ article.category.name }}</span>
-      </a>
-      <meta itemprop="position" content="2" />
-    </li>
-  
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{% url 'bbs:detail' article.slug %}">
-          <span itemprop="name">{{ article.title }}</span>
-      </a>
-      <meta itemprop="position" content="3" />
-    </li>
-  </ol>
   </div>
   </section>
-  <section class="author-sec">
-    <div class="parallax-content img_bg" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <div class="container">
-    <p class="author-title">AUTHOR</p>
-    <div class="author-inner">
-      <div class="profile">
-        <img src="/media/author.jpg" width="100" height="100" alt="">
-        <h5 itemprop="name">S Ohtani</h5>
-        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization" style="display:none">
-          <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <span itemprop="url" content="/media/logo.svg"></span>
-          </span>
-          <span itemprop="name">TECH BLOG</span>
-        </div>
-      </div>
-      <p>Almost 10 years have passed since I started learning web development. Learning web development has made my life more fulfilling. This is because the greatest benefit that can be obtained in the process of learning web development is that when you encounter difficulties, you acquire the attitude of actively searching for information to solve them on your own. And just as I learned a lot from the knowledge of my predecessors, I hope that by disseminating information in English, it will reach people around the world who want to learn web development. life is very short. I would be very happy if I could add even a little bit to your life by my outputting what I learned every day. Maybe the information is incorrect or outdated at times. I'll update when I find out.</p>
-      <!-- <p>WEB開発を学び始めてもうすぐ10年が経つ。WEB開発を学んだことで、私の人生はより充実したものとなった。なぜなら、WEB開発を学ぶ過程で得られる最大のメリットが、困難に遭遇した時に、自分で主体的にそれを解決するための情報を調べようとする姿勢が身につくことだからだ。そして、私が先人たちの知識から多くを学んだように、英語で情報を発信することで、世界中のWEB開発を学ぼうとする人々に届くことを願っています。人生はとても短い。日々私が学んだことをアウトプットすることで、このブログを読んだあなたの人生に少しでもプラスを与えることができたら、私はとても幸せです。もしかしたら、時々、間違った情報であったり、すでに古くなった情報であるかもしれません。その時は気づいたタイミングでアップデートしますね。</p> -->
-    </div>
-    </div>
-  </div>
-  </section>
+  {% include './_author.html' %}
 </main>
-<footer>
-  <div class="footer-inner">
-  <div class="music">
-    <h2>MUSIC</h2>
-
-  </div>
-</div>
-<div id="page-top"><a href="#top"><i class="icon-eject"></i></a> </div>
-<p class="copyright"><em>TECH BLOG©2022</em></p>
-</footer>
+{% include './_footer.html' %}
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- js -->

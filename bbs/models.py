@@ -28,7 +28,6 @@ class Article(models.Model):
                 on_delete=models.PROTECT
               )
   tag = models.ManyToManyField(Tag, verbose_name='タグ')
-  relation = models.ManyToManyField('self', verbose_name='関連', blank=True)
 
   def __str__(self):
     return self.title

@@ -1,0 +1,26 @@
+<header>
+  <div class="container">
+    <p class="logo"><a href="{% url 'bbs:index' %}"><img src="/media/logo.svg" width="234" height="30" alt="TECH BLOG" loading="lazy"></a></p>
+    <nav id="header_nav" role="navigation" itemscope itemtype="http://scheme.org/SiteNavigationElement">
+      <ul class="globalNav">
+      <li itemprop="name"><a href="{% url 'bbs:index' %}" itemprop="url">HOME</a></li>
+      {% for category in category_list %}<li itemprop="name"><a href="{% url 'bbs:category' category %}#blog">{{ category.name }}</a></li>{% endfor %}
+      <li class="li-icon">
+        <a href="https://github.com/shim369" target="_blank" itemprop="url"><i class="icon-github"></i></a>
+        <a href="" target="_blank" itemprop="url"><i class="icon-instagram"></i></a>
+      </li>
+      </ul>
+    </nav>
+    <div class="sp_nav">
+      <div class="menu-btn" id="js_btn">
+      <span data-txt-open="M" data-txt-close="C"></span>
+      <span data-txt-open="E" data-txt-close="L"></span>
+      <span data-txt-open="N" data-txt-close="O"></span>
+      <span data-txt-open="U" data-txt-close="S"></span>
+      <span data-txt-close="E"></span>
+      </div>
+      <nav class="menu" id="js_nav">
+      </nav>
+    </div>
+  </div>
+</header>
