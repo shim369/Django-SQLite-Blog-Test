@@ -9,8 +9,9 @@ def index(request):
   return render(request,'bbs/index.html',{'articles': articles})
 
 def detail(request, slug):
+  entries = Article.objects.all()[:3]
   article = get_object_or_404(Article, slug=slug)
-  return render(request,'bbs/detail.html',{'article': article})
+  return render(request,'bbs/detail.html',{'article': article,'entries': entries})
 
 def category(request, category):
   category = Category.objects.get(name=category)

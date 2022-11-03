@@ -3,8 +3,10 @@
     <p class="logo"><a href="{% url 'bbs:index' %}"><img src="/media/logo.svg" width="234" height="30" alt="TECH BLOG" loading="lazy"></a></p>
     <nav id="header_nav" role="navigation" itemscope itemtype="http://scheme.org/SiteNavigationElement">
       <ul class="globalNav">
-      <li itemprop="name"><a href="{% url 'bbs:index' %}" itemprop="url">HOME</a></li>
+      <li itemprop="name"><a href="{% url 'bbs:index' %}" itemprop="url">home</a></li>
+      {% if articles or article %}
       {% for category in category_list %}<li itemprop="name"><a href="{% url 'bbs:category' category %}#blog">{{ category.name }}</a></li>{% endfor %}
+      {% endif %}
       <li class="li-icon">
         <a href="https://github.com/shim369" target="_blank" itemprop="url"><i class="icon-github"></i></a>
         <a href="" target="_blank" itemprop="url"><i class="icon-instagram"></i></a>

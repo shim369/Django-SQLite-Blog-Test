@@ -1,14 +1,39 @@
 <aside>
+  {% if article %}
+  <h3 class="aside-title">WHAT'S NEW</h3>
+  <ul class="wn-list">
+    {% for article in entries %}
+    <li>
+      <a href="">
+        <picture>
+          <source srcset="/media/{{ article.thumbnail_image }}" type="image/webp" width="82" height="82" loading="lazy" itemprop="image">
+          <img src="/media/{{ article.thumbnail_image }}" width="82" height="82" loading="lazy" itemprop="image" alt="">
+        </picture>
+      </a>
+      <div class="wn-list-sentence">
+        <time itemprop="datePublished" datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
+        <a href="">
+        <h4 itemprop="name headline">{{ article.title }}</h4>
+        </a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if articles or article %}
   <h3 class="aside-title">CATEGORY</h3>
   <ul class="category-list">
   {% for category in category_list %}
   <li><a href="{% url 'bbs:category' category %}#blog">{{ category.name }}</a></li>
   {% endfor %}
   </ul>
+  {% endif %}
+  {% if articles or article %}
   <h3 class="aside-title">TAG</h3>
   <ul class="tag-list">
   {% for tag in tag_list %}
   <li><a href="{% url 'bbs:tag' tag %}#blog">{{ tag.name }}</a></li>
   {% endfor %}
   </ul>
+  {% endif %}
 </aside>

@@ -224,7 +224,6 @@ header {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    overflow-y: scroll;
     li {
       max-width: 400px;
       margin: 20px auto 40px;
@@ -267,7 +266,7 @@ header {
         opacity: 1;
         span {
           color: #edecec;
-          font-family: $font_normal;
+          font-family: $font_en;
         }
         a {
           display: block;
@@ -277,6 +276,7 @@ header {
           justify-content: center;
           align-items: center;
           color: #edecec;
+          font-family: $font_en;
         }
       }
     }
@@ -348,12 +348,12 @@ main {
       }
       .container-inner {
         display: flex;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 950px) {
           flex-direction: column;
         }
         article {
           width: 70%;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 950px) {
             width: 100%;
           }
         }
@@ -361,7 +361,7 @@ main {
           width: 26%;
           margin-left: 4%;
           word-break: break-all;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 950px) {
             width: 100%;
             margin-bottom: 5vh;
             margin-left: 0%;
@@ -371,6 +371,56 @@ main {
             text-align: center;
             margin-bottom: 25px;
             font-family: $font_en;
+          }
+          .wn-list {
+            margin-bottom: 80px;
+            li {
+              display: flex;
+              align-items: flex-start;
+              margin: 20px 0;
+              background: #cfcfd0;
+              padding: 10px;
+              &:first-child {
+                margin-top: 0;
+              }
+              a {
+                &:hover {
+                  opacity: .8;
+                  img {
+                    transform:scale(1.1,1.1);
+                  }
+                }
+                picture {
+                  width: 82px;
+                  height: 82px;
+                  display: inherit;
+                  overflow:hidden;
+                  img {
+                    height: 100%;
+                    object-fit: cover;
+                    transition: all .8s ease;
+                  }
+                }
+              }
+              .wn-list-sentence {
+                padding: 5px 10px;
+                h4 {
+                  color: #26272b;
+                  word-break: break-all;
+                  line-height: 1.2;
+                  font-family: $font_normal;
+                  font-weight: normal;
+                }
+                time {
+                  margin-bottom: 10px;
+                  display: block;
+                  color: #26272b;
+                  i {
+                    margin-right: 3px;
+                  }
+                }
+              }
+            }
           }
           .category-list {
             display: flex;
