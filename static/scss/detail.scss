@@ -112,6 +112,21 @@ main {
                 }
               }
             }
+            ol {
+              background: #cbcbcb;
+              padding: 40px 30px 40px 60px;
+              margin-bottom: 30px;
+              @media screen and (max-width: 800px) {
+                padding: 40px 4% 40px 12%;
+              }
+              li {
+                margin-bottom: 10px;
+                color: $base_color;
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+            }
             pre {
               font-size: 18px;
               background: #cbcbcb;
