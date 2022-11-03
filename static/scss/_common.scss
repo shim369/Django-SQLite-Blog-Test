@@ -148,7 +148,7 @@ header {
       margin-right: 0;
       display: flex;
         a {
-          padding: 10px .5vw;
+          padding: 10px;
         }
       }
       > a,span {
@@ -484,7 +484,6 @@ main {
     }
     &.img_bg {
       background-image: url(/media/bg_parallax.jpg);
-      // filter: grayscale(100%) brightness(100%);
     }
     .container {
       max-width: $base_width;
