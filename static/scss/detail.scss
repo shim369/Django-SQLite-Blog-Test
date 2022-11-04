@@ -139,6 +139,58 @@ main {
           }
         }
       }
+      aside {
+        .wn-list {
+          margin-bottom: 80px;
+          li {
+            display: flex;
+            align-items: flex-start;
+            margin: 20px 0;
+            background: #cfcfd0;
+            padding: 10px;
+            &:first-child {
+              margin-top: 0;
+            }
+            a {
+              &:hover {
+                opacity: .8;
+                img {
+                  transform:scale(1.1,1.1);
+                }
+              }
+              picture {
+                width: 82px;
+                height: 82px;
+                display: inherit;
+                overflow:hidden;
+                img {
+                  height: 100%;
+                  object-fit: cover;
+                  transition: all .8s ease;
+                }
+              }
+            }
+            .wn-list-sentence {
+              padding: 0 10px;
+              h4 {
+                color: #26272b;
+                word-break: break-all;
+                line-height: 1.2;
+                font-family: $font_normal;
+                font-weight: normal;
+              }
+              time {
+                margin-bottom: 10px;
+                display: block;
+                color: #26272b;
+                i {
+                  margin-right: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
