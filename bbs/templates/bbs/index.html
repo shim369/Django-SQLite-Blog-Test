@@ -21,10 +21,11 @@
   </script>
   <!-- dns-prefetch -->
 </head>
-<body id="top" itemscope itemtype="http://schema.org/WebPage">
+<body id="top">
 <div class="wrapper">
   {% include './_header.html' %}
-<main>
+<main itemscope itemtype="https://schema.org/Blog">
+  <div itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     <section class="mainv-sec">
       <div class="container">
       <div class="catch">
@@ -80,6 +81,7 @@
       </div>
     </section>
     {% include './_author.html' %}
+  </div>
 </main>
 {% include './_footer.html' %}
 </div>

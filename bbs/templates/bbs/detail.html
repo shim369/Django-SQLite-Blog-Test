@@ -33,20 +33,21 @@
 "dateModified": "{{ article.updated_at|date:'Y-m-d' }}",
 "image": {
 "@type": "ImageObject",
-"url": "サムネイル画像のURL",
+"url": "https://sohtani.pythonanywhere.com/media/{{ article.thumbnail_image }}",
 "width": "868",
 "height": "400"
 },
 "author": {
 "@type": "Person",
-"name": "S Ohtani"
+"name": "S Ohtani",
+"url": "https://github.com/shim369"
 },
 "publisher": {
 "@type": "Organization",
 "name": "TECH BLOG",
 "logo":{
 "@type": "ImageObject",
-"url": "サイトロゴURL",
+"url": "https://sohtani.pythonanywhere.com/media/logo.svg",
 "width": "234",
 "height": "30"
 }
@@ -87,16 +88,16 @@
     </script>
   <!-- dns-prefetch -->
 </head>
-<body id="top" itemscope itemtype="http://schema.org/WebPage">
+<body id="top">
 <div class="wrapper">
 {% include './_header.html' %}
 <main itemscope itemtype="https://schema.org/Blog">
+  <div itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
   <section class="blog-sec">
   <div class="container">
     <p class="blog-title en">BLOG</p>
     <div class="container-inner">
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-      <meta itemscope itemprop="mainEntityOfPage"> 
+    <article>
       <section class="article-sec">
           <div class="article-head">
             <p class="category"><a href="{% url 'bbs:category' article.category %}#blog">{{ article.category }}</a></p>
@@ -151,6 +152,7 @@
   </div>
   </section>
   {% include './_author.html' %}
+  </div>
 </main>
 {% include './_footer.html' %}
 </div>
