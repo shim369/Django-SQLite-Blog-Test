@@ -151,7 +151,7 @@ header {
           padding: 10px;
         }
       }
-      > a,span {
+      > a {
         letter-spacing: 0.1rem;
         position: relative;
         font-size: 1.1rem;
@@ -163,6 +163,7 @@ header {
         display: flex;
         align-items: center;
         font-family: $font_en;
+        transition: all .8s ease;
         &:hover {
           opacity: 0.8;
         }
@@ -343,7 +344,7 @@ main {
       padding-top: 80px;
       padding-bottom: 80px;
       @media screen and (max-width: 800px) {
-        padding-top: 10vh;
+        padding-top: 8vh;
         padding-bottom: 8vh;
       }
       .container-inner {
@@ -363,8 +364,8 @@ main {
           word-break: break-all;
           @media screen and (max-width: 950px) {
             width: 100%;
-            margin-bottom: 5vh;
-            margin-left: 0%;
+            margin-bottom: 0;
+            margin-left: 0;
           }
           .aside-title {
             color: $base_color;
