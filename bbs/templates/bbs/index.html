@@ -69,7 +69,7 @@
                 <div class="category"><a href="{% url 'bbs:category' article.category %}#blog" itemprop="articleSection" class="en">{{ article.category }}</a></div>
                 <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datePublished"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
                 <h2 itemprop="name headline"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}" itemprop="url">{{ article.title }}</a></h2>
-                <p itemprop="description">{{ article.description| truncatechars:40 }}</p>
+                <p itemprop="description">{{ article.description| truncatechars:60 }}</p>
                 <a href="{% url 'bbs:detail' article.slug %}" class="btn1" itemprop="url">READ MORE<i class="icon-circle-right"></i></a>
               </div>
             </li>

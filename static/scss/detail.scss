@@ -26,6 +26,9 @@ main {
             line-height: 1.5;
             font-size: 20px;
             padding: 60px 40px 0;
+            @media screen and (max-width: 800px) {
+              padding: 20px 4%;
+            }
             .category {
               position: absolute;
               top: 0;
@@ -37,6 +40,9 @@ main {
                 font-size: 20px;
                 background: $base_color;
                 font-family: $font_en;
+                @media screen and (max-width: 800px) {
+                  font-size: 15px;
+                }
               }
             }
             .article-title {
@@ -49,11 +55,17 @@ main {
               z-index: 1;
               @media screen and (max-width: 800px) {
                 font-size: 1.2rem;
+                margin-top: 35px;
+                margin-bottom: 20px;
               }
             }
             .date {
               text-align: left;
               margin-bottom: 40px;
+              @media screen and (max-width: 800px) {
+                margin-bottom: 0;
+                font-size: 1.2rem;
+              }
               time {
                 i {
                   padding-right: 3px;
@@ -67,7 +79,7 @@ main {
             font-size: 20px;
             padding: 60px 40px;
             @media screen and (max-width: 800px) {
-              padding: 30px 4%;
+              padding: 20px 4%;
             }
             h2 {
               background: #cbcbcb;
@@ -195,33 +207,41 @@ main {
   }
 }
 
-.breadcrumb {
-  list-style: none;
-  overflow: hidden;
-  margin-bottom: 60px;
-  li {
-    display: inline;
+.breadcrumb-box {
+  margin-top: 40px;
+  max-width: 1300px;
+  .breadcrumb {
     list-style: none;
-    &::after {
-      content: '>';
-      padding: 0 0.2em;
-      color: $base_color;
+    overflow: hidden;
+    margin-bottom: 30px;
+    @media screen and (max-width: 800px) {
+      margin-bottom: 0;
     }
-    &:first-child {
-      i {
-        margin-right: 3px;
+    li {
+      display: inline;
+      list-style: none;
+      &::after {
+        content: '>';
+        padding: 0 0.2em;
+        color: $base_color;
       }
-    }
-    &:last-child:after {
-      content: '';
-    }
-    a {
-      font-family: $font_en;
-      text-decoration: none;
-      color: $base_color;
-      word-break: break-all;
-      &:hover {
-        opacity: .8;
+      &:first-child {
+        i {
+          margin-right: 3px;
+        }
+      }
+      &:last-child:after {
+        content: '';
+      }
+      a {
+        font-family: $font_en;
+        text-decoration: none;
+        color: $base_color;
+        word-break: break-all;
+        font-size: .8rem;
+        &:hover {
+          opacity: .8;
+        }
       }
     }
   }
