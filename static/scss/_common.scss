@@ -25,37 +25,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-home3:before {
   content: "\e902";
 }
 .icon-clock2:before {
   content: "\e94f";
 }
-.icon-quotes-left:before {
-  content: "\e977";
-}
-.icon-quotes-right:before {
-  content: "\e978";
+.icon-spinner11:before {
+  content: "\e984";
 }
 .icon-checkmark:before {
   content: "\ea10";
   padding-right: 10px;
   color: #725e51;
 }
-.icon-circle-right:before {
-  content: "\ea42";
-}
-.icon-circle-down:before {
-  content: "\ea43";
-  padding-left: 3px;
-}
 .icon-eject:before {
   content: "\ea25";
 }
-.icon-instagram:before {
-  content: "\ea92";
-  font-size: 25px;
+.icon-circle-right:before {
+  content: "\ea42";
 }
 .icon-github:before {
   content: "\eab0";
@@ -434,7 +422,8 @@ main {
       min-height: 300px;
     }
     &.img_bg {
-      background-image: url(/media/bg_parallax.jpg);
+      background-color: $base_color;
+      background-image: url(/media/bg_parallax.webp);
     }
     .container {
       max-width: $base_width;

@@ -19,9 +19,11 @@ class Article(models.Model):
   title = models.CharField('タイトル', max_length=200, null=True)
   description = models.CharField('説明', max_length=500, null=True)
   content = models.TextField('テキスト')
+  article_body = models.CharField('プレーンテキスト', max_length=3000, null=True)
   created_at = models.DateField('作成日', auto_now_add=True)
   updated_at = models.DateField('更新日', auto_now=True)
   thumbnail_image = models.ImageField('サムネイル',null=True, blank=True)
+  thumbnail_image_webp = models.ImageField('サムネイル webp',null=True, blank=True)
   slug = models.SlugField('スラッグ',blank=True, unique=False, max_length=255)
   category = models.ForeignKey(
                 Category, verbose_name='カテゴリー',

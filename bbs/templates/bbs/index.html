@@ -2,28 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="{% static 'css/index.css' %}">
-  <link rel="icon" href="/media/favicon.ico" />
-  <meta name="viewport" content="width=device-width, minimum-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1" />
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="icon" href="/media/favicon.ico" />
   <!-- OGP -->
-  <!-- schema.org -->
-  <meta itemprop="name" content="">
-  <meta itemprop="description" content="">
   <!-- SEO -->
-  <title>TECH BLOG</title>
-  <meta name="description" content="" />
-  <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <link rel="canonical" href="" />
-  <meta name="google" content="nositelinkssearchbox" />
-  <script type="application/ld+json">
-    {}
-  </script>
-  <!-- dns-prefetch -->
+<title>TECH BLOG</title>
+<meta name="description" content="It's a blog that transmits web development and a part of life." />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="" />
+<!-- dns-prefetch -->
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="preconnect" href="//code.jquery.com">
+<link rel="dns-prefetch" href="//code.jquery.com">
 </head>
 <body id="top">
 <div class="wrapper">
-  {% include './_header.html' %}
+{% include './_header.html' %}
 <main itemscope itemtype="https://schema.org/Blog">
   <div itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     <section class="mainv-sec">
@@ -34,16 +30,16 @@
       <div class="slide-wrap">
         <div class="slide-box" id="slideImgs">
           <picture>
-            <source srcset="/media/1.webp" type="image/webp" width="1240" height="540" loading="lazy">
-            <img src="/media/1.jpg" width="1240" height="540" loading="lazy" alt="">
+            <source srcset="/media/1.webp" type="image/webp" width="1240" height="540">
+            <img src="/media/1.jpg" width="1240" height="540" alt="">
           </picture>
           <picture>
-            <source srcset="/media/2.webp" type="image/webp" width="1240" height="540" loading="lazy">
-            <img src="/media/2.jpg" width="1240" height="540" loading="lazy" alt="">
+            <source srcset="/media/2.webp" type="image/webp" width="1240" height="540">
+            <img src="/media/2.jpg" width="1240" height="540" alt="">
           </picture>
           <picture>
-            <source srcset="/media/3.webp" type="image/webp" width="1240" height="540" loading="lazy">
-            <img src="/media/3.jpg" width="1240" height="540" loading="lazy" alt="">
+            <source srcset="/media/3.webp" type="image/webp" width="1240" height="540">
+            <img src="/media/3.jpg" width="1240" height="540" alt="">
           </picture>
         </div>
       </div>
@@ -60,8 +56,8 @@
               <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="blog-card-img">
                 <a href="{% url 'bbs:detail' article.slug %}" title="" itemprop="url" itemscope>
                 <picture>
-                  <source srcset="/media/{{ article.thumbnail_image }}" type="image/webp" width="280" height="150" loading="lazy" itemprop="image">
-                  <img src="/media/{{ article.thumbnail_image }}" width="280" height="150" loading="lazy" itemprop="image" alt="">
+                  <source srcset="/media/{{ article.thumbnail_image }}" type="image/webp" width="280" height="150" itemprop="image">
+                  <img src="/media/{{ article.thumbnail_image }}" width="280" height="150" itemprop="image" alt="">
                   </picture>
                 </a>
               </div>
@@ -87,7 +83,8 @@
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- js -->
-<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<!-- <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{% static 'js/main.js' %}"></script>
 <script>
 $(function(){
@@ -107,23 +104,7 @@ $(function(){
   };
   setInterval(slidesShow, show);
 });
-$(function(){
-  $(window).scroll(function () {
-    let scrollTop = $(this).scrollTop();
-    let scrollBottom = scrollTop + $(this).height();
-    let effectPos = scrollBottom + 200;
-    
-    $(".blog-card").each(function (i) {
-        if(effectPos > $(this).offset().top){
-            let that = this;
-
-            setTimeout(function () {
-                $(that).addClass("fadein");
-            }, 100 * i);
-        }
-    });
-  });
-});
 </script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
 </body>
 </html>
