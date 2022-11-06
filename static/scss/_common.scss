@@ -1,9 +1,12 @@
+@charset "utf-8";
 @font-face {
   font-family: 'MontserratSubrayada-Bold';
+  font-display: swap;
   src: url('/static/fonts/MontserratSubrayada-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'icomoon';
+  font-display: swap;
   src:  url('/static/fonts/icomoon.eot?8j24pb');
   src:  url('/static/fonts/icomoon.eot?8j24pb#iefix') format('embedded-opentype'),
     url('/static/fonts/icomoon.ttf?8j24pb') format('truetype'),
@@ -11,7 +14,7 @@
     url('/static/fonts/icomoon.svg?8j24pb#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  // font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -75,6 +78,7 @@ a {
 }
 .wrapper {
   overflow-x: hidden;
+  background: #1e1f21;
 }
 html,body {
   width: 100%;
@@ -299,6 +303,7 @@ header {
 main {
   margin-top: 95px;
   overflow: hidden;
+  background: #c1c1c4;
   @media screen and (max-width: 800px) {
     margin-top: 0;
   }
