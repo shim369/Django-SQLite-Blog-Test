@@ -35,17 +35,21 @@ ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com', 'sohtani.pythonanywhere.com
 
 # Application definition
 
+SITE_ID = 1
 INSTALLED_APPS = [
     'bbs.apps.bbsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
     'django_summernote',
 ]
+
 
 SUMMERNOTE_THEME = 'bs4'
 X_FRAME_OPTOPNS = 'SAMEORIGIN'
