@@ -1,12 +1,22 @@
-from multiprocessing import context
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render,get_object_or_404
-from django.http import HttpResponse
-
 from bbs.models import Category, Article, Tag
+
+def paginate_queryset(request, queryset, count):
+  paginator = Paginator(queryset, count)
+  page = request.GET.get('page')
+  try:
+      page_obj = paginator.page(page)
+  except PageNotAnInteger:
+      page_obj = paginator.page(1)
+  except EmptyPage:
+      page_obj = paginator.page(paginator.num_pages)
+  return page_obj
 
 def index(request):
   articles = Article.objects.all()
-  return render(request,'bbs/index.html',{'articles': articles})
+  page_obj = paginate_queryset(request, articles, 9)
+  return render(request,'bbs/index.html',{'articles': page_obj.object_list,'page_obj': page_obj})
 
 def detail(request, slug):
   entries = Article.objects.all()[:3]
