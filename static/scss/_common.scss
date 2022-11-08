@@ -14,7 +14,6 @@
     url('/static/fonts/icomoon.svg?8j24pb#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
-  // font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -477,7 +476,6 @@ main {
             color: #dadada;
             font-family: $font_en;
             padding: 15px 0 0;
-            margin-bottom: 15px;
           }
           a {
             color: #dadada;
@@ -501,21 +499,6 @@ main {
 }
 
 footer {
-  .footer-inner {
-    display: flex;
-    h2 {
-      text-align: center;
-      color: #dadada;
-      font-size: 28px;
-      font-family: $font_en;
-      margin-bottom: 30px;
-    }
-    .music {
-      padding: 50px 0;
-      width: 100%;
-      background: $base_color;
-    }
-  }
   .copyright {
     padding: 15px 0;
     text-align: center;
