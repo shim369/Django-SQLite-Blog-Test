@@ -14,12 +14,12 @@ def paginate_queryset(request, queryset, count):
   return page_obj
 
 def index(request):
-  articles = Article.objects.all().order_by('id')
+  articles = Article.objects.order_by('-id')
   page_obj = paginate_queryset(request, articles, 9)
   return render(request,'bbs/index.html',{'articles': page_obj.object_list,'page_obj': page_obj})
 
 def detail(request, slug):
-  entries = Article.objects.all()[:3]
+  entries = Article.objects.order_by('-id')[:3]
   article = get_object_or_404(Article, slug=slug)
   return render(request,'bbs/detail.html',{'article': article,'entries': entries})
 
