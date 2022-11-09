@@ -316,7 +316,7 @@ main {
       font-weight: bold;
       color: $base_color;
       @media screen and (max-width: 800px) {
-        font-size: 2rem;
+        font-size: 3.5rem;
         margin-bottom: 40px;
       }
       &::after {
@@ -327,7 +327,7 @@ main {
         background: $base_color;
         display: block;
         @media screen and (max-width: 800px) {
-          height: 1.5px;
+          height: 1.7px;
         }
       }
     }
@@ -440,7 +440,7 @@ main {
         display: flex;
         align-items: center;
         @media screen and (max-width: 800px) {
-          font-size: 2rem;
+          font-size: 3.5rem;
           margin-bottom: 40px;
         }
         &::before {
@@ -451,7 +451,7 @@ main {
           background: #dadada;
           display: block;
           @media screen and (max-width: 800px) {
-            height: 1.5px;
+            height: 1.7px;
           }
         }
       }
