@@ -18,32 +18,24 @@
 {% include './_header.html' %}
 <main>
   <div class="breadcrumb-box container">
-  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{% url "bbs:index" %}">
-          <span itemprop="name"><i class="icon-home3"></i>HOME</span>
+  <ol class="breadcrumb">
+    <li>
+      <a href="{% url "bbs:index" %}">
+          <span><i class="icon-home3"></i>HOME</span>
       </a>
-      <meta itemprop="position" content="1" />
     </li>
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{% url 'bbs:category' article.category %}#blog">
-          <span itemprop="name">{{ article.category.name }}</span>
+    <li>
+      <a href="{% url 'bbs:category' article.category %}#blog">
+          <span>{{ article.category.name }}</span>
       </a>
-      <meta itemprop="position" content="2" />
     </li>
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{% url 'bbs:detail' article.slug %}">
-          <span itemprop="name">{{ article.title }}</span>
+    <li>
+      <a href="{% url 'bbs:detail' article.slug %}">
+          <span>{{ article.title }}</span>
       </a>
-      <meta itemprop="position" content="3" />
     </li>
   </ol>
   </div>
-  <div itemscope itemtype="https://schema.org/Blog">
-  <div itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
   <section class="blog-sec">
   <div class="container">
     <p class="blog-title en">BLOG</p>
@@ -52,21 +44,21 @@
       <section class="article-sec">
           <div class="article-head">
             <p class="category"><a href="{% url 'bbs:category' article.category %}#blog">{{ article.category }}</a></p>
-            <h1 itemprop="headline" class="article-title">{{ article.title }}</h1>
+            <h1 class="article-title">{{ article.title }}</h1>
             <p class="date">
-              <time itemprop="datePublished" datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time><time itemprop="dateModified" datetime="{{ article.updated_at|date:'Y-m-d' }}"><i class="icon-spinner11"></i>{{ article.updated_at|date:'Y/m/d' }}
+              <time datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time><time datetime="{{ article.updated_at|date:'Y-m-d' }}"><i class="icon-spinner11"></i>{{ article.updated_at|date:'Y/m/d' }}
               </time>
             </p>
           </div>
-          <figure itemscope itemtype="http://schema.org/ImageObject" class="thumbnail">
-            <a href="{% url 'bbs:detail' article.slug %}" itemprop="url" title="{{ article.title }}">
+          <figure class="thumbnail">
+            <a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}">
               <picture>
-                <source srcset="/media/{{ article.thumbnail_image_webp }}" type="image/webp" width="868" height="400" itemprop="image">
-                <img src="/media/{{ article.thumbnail_image }}" width="868" height="400" itemprop="image" alt="{{ article.category.name }}">
+                <source srcset="/media/{{ article.thumbnail_image_webp }}" type="image/webp" width="868" height="400">
+                <img src="/media/{{ article.thumbnail_image }}" width="868" height="400" alt="{{ article.category.name }}">
               </picture>
             </a>
           </figure>
-          <div class="article-contents" itemprop="articleBody">
+          <div class="article-contents">
             {% autoescape off %}
             <div>{{ article.content | safe }}</div>
             {% endautoescape %}
@@ -78,8 +70,6 @@
   </div>
   </section>
   {% include './_author.html' %}
-  </div>
-</div>
 </main>
 {% include './_footer.html' %}
 </div>
@@ -88,7 +78,7 @@
 <!-- <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script> -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{% static 'js/main.js' %}" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}/"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "Blog","blogPost": [{"@type": "BlogPosting","headline": "{{ article.title }}","description": "{{ article.description }}","url": "https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}","mainEntityOfPage": {"@type":"WebPage","@id":"https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}"},"datePublished": "{{ article.created_at|date:'Y-m-d' }}","dateModified": "{{ article.updated_at|date:'Y-m-d' }}","image": {"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/{{ article.thumbnail_image }}","width": "868","height": "400"},"author": {"@type": "Person","name": "S Ohtani","url": "https://github.com/shim369"},"publisher": {"@type": "Organization","name": "TECH BLOG","logo":{"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/logo.jpg","width": "254","height": "83"}},"articleBody": "{{ article.article_body }}"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"item": {"@id": "https://sohtani.pythonanywhere.com/","name": "home"}},{"@type": "ListItem","position": 2,"item": {"@id": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}/","name": "{{ article.category.name }}"}},{"@type": "ListItem","position": 3,"item": {"@id": "https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}","name": "{{ article.title }}"}}]}</script>
 </body>

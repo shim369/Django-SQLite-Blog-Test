@@ -45,15 +45,15 @@
       <div class="container">
         <p class="blog-title en">BLOG</p>
         <div class="container-inner">
-        <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+        <article>
           <ul itemprop="articleBody" class="blog-card-list">
             {% for article in articles %}
             <li class="blog-card">
               <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="blog-card-img">
-                <a href="{% url 'bbs:detail' article.slug %}" title="" itemprop="url" itemscope>
+                <a href="{% url 'bbs:detail' article.slug %}" title="">
                 <picture>
-                  <source srcset="/media/{{ article.thumbnail_image }}" type="image/webp" width="280" height="150" itemprop="image">
-                  <img src="/media/{{ article.thumbnail_image }}" width="280" height="150" itemprop="image" alt="">
+                  <source srcset="/media/{{ article.thumbnail_image }}" type="image/webp" width="280" height="150">
+                  <img src="/media/{{ article.thumbnail_image }}" width="280" height="150" itemprop="url" alt="">
                   </picture>
                 </a>
               </div>

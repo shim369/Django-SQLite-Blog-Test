@@ -3,12 +3,12 @@
     <p class="logo"><a href="{% url 'bbs:index' %}"><img src="/media/logo.svg" width="234" height="30" alt="TECH BLOG" loading="lazy"></a></p>
     <nav id="header_nav" role="navigation">
       <ul class="globalNav">
-      <li itemscope itemtype="https://schema.org/SiteNavigationElement"><a href="{% url 'bbs:index' %}" itemprop="url"><span itemprop="name">home</span></a></li>
+      <li><a href="{% url 'bbs:index' %}"><span>home</span></a></li>
       {% if articles or article %}
-      {% for category in category_list %}<li itemscope itemtype="https://schema.org/SiteNavigationElement"><a href="/category/{{ category.name }}/#blog" itemprop="url"><span itemprop="name">{{ category.name }}</span></a></li>{% endfor %}
+      {% for category in category_list %}<li><a href="/category/{{ category.name }}/#blog"><span>{{ category.name }}</span></a></li>{% endfor %}
       {% endif %}
-      <li itemscope itemtype="https://schema.org/SiteNavigationElement" class="li-icon">
-        <a href="https://github.com/shim369" target="_blank" itemprop="url"><i class="icon-github"></i></a>
+      <li class="li-icon">
+        <a href="https://github.com/shim369" target="_blank"><i class="icon-github"></i></a>
         <!-- <a href="" target="_blank" itemprop="url"><i class="icon-instagram"></i></a> -->
       </li>
       </ul>
