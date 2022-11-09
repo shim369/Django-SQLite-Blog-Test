@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, minimum-scale=1" />
+<meta name="viewport" content="width=device-width, minimum-scale=1">
 <link rel="stylesheet" href="{% static 'css/index.css' %}" async>
 <title>TECH BLOG</title>
-<meta name="description" content="It's a blog that transmits web development and a part of life." />
-<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="description" content="It's a blog that transmits web development and a part of life.">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="preconnect" href="//code.jquery.com">
 <link rel="dns-prefetch" href="//code.jquery.com">
 <link rel="canonical" href="">
 <link rel="icon" href="/media/favicon.ico">
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body id="top">
 <div class="wrapper">
@@ -58,11 +59,11 @@
                 </a>
               </div>
               <div class="blog-card-inner">
-                <div class="category"><a href="{% url 'bbs:category' article.category %}#blog" itemprop="articleSection" class="en">{{ article.category }}</a></div>
+                <div class="category en">{{ article.category }}</div>
                 <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datePublished"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
                 <h2 itemprop="name headline"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}" itemprop="url">{{ article.title }}</a></h2>
-                <p itemprop="description">{{ article.description| truncatechars:60 }}</p>
-                <a href="{% url 'bbs:detail' article.slug %}" class="btn1" itemprop="url">READ MORE<i class="icon-circle-right"></i></a>
+                <p itemprop="description"><a href="{% url 'bbs:detail' article.slug %}">{{ article.description| truncatechars:60 }}
+                <span class="btn1">READ MORE<i class="icon-circle-right"></i></span></a></p>
               </div>
             </li>
             {% endfor %}
@@ -95,10 +96,10 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- js -->
 <!-- <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script> -->
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{% static 'js/main.js' %}" defer></script>
-<script>
-$(function(){
+<script defer>
+window.addEventListener( 'load', function(){
+  $(function(){
   const slides = $("#slideImgs").find("picture");
   const slideLength = slides.length;
   let now = 0;
@@ -108,14 +109,15 @@ $(function(){
   slides.hide();
   slides.eq(0).show();
   const slidesShow = () => {
-    slides.eq(now % slideLength).fadeOut(fade).removeClass("zoom");
-    slides.eq(next % slideLength).fadeIn(fade).addClass("zoom");
-    now++;
-    next++;
+  slides.eq(now % slideLength).fadeOut(fade).removeClass("zoom");
+  slides.eq(next % slideLength).fadeIn(fade).addClass("zoom");
+  now++;
+  next++;
   };
   setInterval(slidesShow, show);
-});
-</script>
+  });
+  }, false);
+  </script>
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
 </body>
 </html>

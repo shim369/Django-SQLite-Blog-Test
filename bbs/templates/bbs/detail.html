@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, minimum-scale=1" />
+<meta name="viewport" content="width=device-width, minimum-scale=1">
 <link rel="stylesheet" href="{% static 'css/detail.css' %}" async>
 <title>{{ article.title }}</title>
-<meta name="description" content="{{ article.description }}" />
-<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="description" content="{{ article.description }}">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="preconnect" href="//code.jquery.com">
 <link rel="dns-prefetch" href="//code.jquery.com">
-<link rel="canonical" href="" />
-<link rel="icon" href="/media/favicon.ico" />
+<link rel="canonical" href="">
+<link rel="icon" href="/media/favicon.ico">
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body id="top">
 <div class="wrapper">
@@ -77,7 +78,6 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- js -->
 <!-- <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script> -->
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{% static 'js/main.js' %}" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}/"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "Blog","blogPost": [{"@type": "BlogPosting","headline": "{{ article.title }}","description": "{{ article.description }}","url": "https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}","mainEntityOfPage": {"@type":"WebPage","@id":"https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}"},"datePublished": "{{ article.created_at|date:'Y-m-d' }}","dateModified": "{{ article.updated_at|date:'Y-m-d' }}","image": {"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/{{ article.thumbnail_image }}","width": "868","height": "400"},"author": {"@type": "Person","name": "S Ohtani","url": "https://github.com/shim369"},"publisher": {"@type": "Organization","name": "TECH BLOG","logo":{"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/logo.jpg","width": "254","height": "83"}},"articleBody": "{{ article.article_body }}"}]}</script>

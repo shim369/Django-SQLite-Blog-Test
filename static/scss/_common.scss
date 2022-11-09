@@ -259,13 +259,14 @@ header {
         span {
           color: #edecec;
           font-family: $font_en;
+          margin-top: 5px;
         }
         a {
-          display: block;
           text-decoration: none;
           font-size: 1.1rem;
           display: flex;
           justify-content: center;
+          flex-direction: column;
           align-items: center;
           color: #edecec;
           font-family: $font_en;
@@ -287,6 +288,7 @@ header {
     z-index: 99999;
     background-color: $square_light;
     letter-spacing: 0;
+    box-shadow: rgb(47 42 37 / 20%) 2px 2px 2px;
     span {
       color: #edecec;
       &::after {
@@ -391,6 +393,7 @@ main {
           .tag-list {
             display: flex;
             flex-wrap: wrap;
+            margin-bottom: 60px;
             li {
               margin: 0 15px 15px 0;
               a {
@@ -475,13 +478,13 @@ main {
             font-size: 1rem;
             color: #dadada;
             font-family: $font_en;
-            padding: 15px 0 0;
+            padding: 5px 0 0;
           }
           a {
             color: #dadada;
           }
         }
-        p {
+        .intro {
           color: #dadada;
           word-break: break-all;
           line-height: 1.7;
@@ -522,8 +525,8 @@ footer {
     background: $base_color;
     box-shadow: rgb(47 42 37 / 20%) 2px 2px 2px;
     color: #fff;
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     line-height: 1;
     font-size: 1.2rem;
     text-align: center;
@@ -531,7 +534,7 @@ footer {
     padding: 10px;
     transition: all .8s ease;
     &:hover {
-      opacity: 0.6;
+      background: rgba(38,39,43,.6);
     }
     i {
       color: #fff;

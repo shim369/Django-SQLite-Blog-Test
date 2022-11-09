@@ -173,11 +173,9 @@
               top: 0;
               left: 0;
               display: grid;
-              a {
-                background: $base_color;
-                color: #dadada;
-                padding: 5px 10px;
-              }
+              background: $base_color;
+              color: #dadada;
+              padding: 5px 10px;
             }
             time {
               color: $base_color;
@@ -200,31 +198,35 @@
             }
             p {
               line-height: 1.3;
-              margin: 15px 0;
+              margin: 15px 0 0;
               color: $base_color;
               min-height: 43px;
-            }
-            .btn1 {
-              background-color: $square_light;
-              border: solid thin $square_light;
-              color: #bdbaba;
-              display: inline-block;
-              line-height: 1;
-              width: 100%;
-              padding: 10px 25px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              -ms-touch-action: manipulation;
-              touch-action: manipulation;
-              transition: all .8s ease;
-              i {
-                margin-left: 5px;
-              }
-              &:hover {
-                background-color: transparent;
-                border: solid thin $square_dark;
-                color: $square_dark;
+              a {
+                color: $base_color;
+                .btn1 {
+                  background-color: $square_light;
+                  border: solid thin $square_light;
+                  color: #bdbaba;
+                  display: inline-block;
+                  line-height: 1;
+                  width: 100%;
+                  padding: 10px 25px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  -ms-touch-action: manipulation;
+                  touch-action: manipulation;
+                  transition: all .8s ease;
+                  margin-top: 15px;
+                  i {
+                    margin-left: 5px;
+                  }
+                  &:hover {
+                    background-color: transparent;
+                    border: solid thin $square_dark;
+                    color: $square_dark;
+                  }
+                }
               }
             }
           }

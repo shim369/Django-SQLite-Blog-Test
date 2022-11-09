@@ -8,14 +8,20 @@
     margin-bottom: 30px;
     @media screen and (max-width: 800px) {
       margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
     }
     li {
       display: inline;
       list-style: none;
+      @media screen and (max-width: 800px) {
+        margin-bottom: 15px;
+      }
       &::after {
         content: '>';
         padding: 0 0.2em;
         color: $base_color;
+        font-weight: bold;
       }
       &:first-child {
         i {
@@ -31,6 +37,13 @@
         color: $base_color;
         word-break: break-all;
         font-size: 1rem;
+        @media screen and (max-width: 800px) {
+          color: #dadada;
+          padding: 10px 20px;
+          display: inline-block;
+          background: #161719;
+          border-radius: 5px;
+        }
         &:hover {
           opacity: .8;
         }
