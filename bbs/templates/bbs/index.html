@@ -54,8 +54,8 @@
               <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="blog-card-img">
                 <a href="{% url 'bbs:detail' article.slug %}" title="">
                 <picture>
-                  <source srcset="/media/{{ article.thumbnail_image }}" type="image/webp" width="280" height="150">
-                  <img src="/media/{{ article.thumbnail_image }}" width="280" height="150" itemprop="url" alt="">
+                  <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="280" height="150">
+                  <img src="/media/{{ article.tag_image }}.jpg" width="280" height="150" itemprop="url" alt="">
                   </picture>
                 </a>
               </div>

@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render,get_object_or_404
 from bbs.models import Category, Article, Tag
+from django.views.generic import DetailView
 
 def paginate_queryset(request, queryset, count):
   paginator = Paginator(queryset, count)
@@ -31,4 +32,4 @@ def category(request, category):
 def tag(request, tag):
   tag = Tag.objects.get(name=tag)
   articles = Article.objects.filter(tag=tag)
-  return render(request, 'bbs/index.html', {'tag': tag, 'articles': articles })
+  return render(request, 'bbs/index.html',{'tag': tag, 'articles': articles })

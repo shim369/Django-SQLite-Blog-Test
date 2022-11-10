@@ -22,14 +22,15 @@ class Article(models.Model):
   article_body = models.CharField('プレーンテキスト', max_length=3000, null=True)
   created_at = models.DateField('作成日', auto_now_add=True)
   updated_at = models.DateField('更新日', auto_now=True)
-  thumbnail_image = models.ImageField('サムネイル',null=True, blank=True)
-  thumbnail_image_webp = models.ImageField('サムネイル webp',null=True, blank=True)
+  # thumbnail_image = models.ImageField('サムネイル',null=True, blank=True)
+  # thumbnail_image_webp = models.ImageField('サムネイル webp',null=True, blank=True)
   slug = models.SlugField('スラッグ',blank=True, unique=False, max_length=255)
   category = models.ForeignKey(
                 Category, verbose_name='カテゴリー',
                 on_delete=models.PROTECT
               )
   tag = models.ManyToManyField(Tag, verbose_name='タグ')
+  tag_image = models.CharField('タグ画像用', max_length=200, null=True)
 
   def __str__(self):
     return self.title

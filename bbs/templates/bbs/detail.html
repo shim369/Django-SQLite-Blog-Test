@@ -36,8 +36,8 @@
           <figure class="thumbnail">
             <a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}">
               <picture>
-                <source srcset="/media/{{ article.thumbnail_image_webp }}" type="image/webp" width="868" height="400">
-                <img src="/media/{{ article.thumbnail_image }}" width="868" height="400" alt="{{ article.category.name }}">
+                <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="868" height="400">
+                <img src="/media/{{ article.tag_image }}.jpg" width="868" height="400" alt="{{ article.tag_image }}">
               </picture>
             </a>
           </figure>
