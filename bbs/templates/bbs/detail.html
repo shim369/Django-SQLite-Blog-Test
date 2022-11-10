@@ -13,7 +13,6 @@
 <link rel="dns-prefetch" href="https://code.jquery.com">
 <link rel="canonical" href="">
 <link rel="icon" href="/media/favicon.ico">
-<script async src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body id="top">
 <div class="wrapper">
@@ -76,6 +75,7 @@
 </main>
 {% include './_footer.html' %}
 </div>
+<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script defer src="/static/js/main.js"></script>
 <!-- <script defer src="{% static 'js/main.js' %}"></script> -->
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}/"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
