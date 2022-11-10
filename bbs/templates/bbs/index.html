@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, minimum-scale=1">
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="/static/css/index.css">
+<!-- <link rel="stylesheet" href="{% static 'css/index.css' %}"> -->
 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <title>TECH BLOG</title>
 <meta name="description" content="It's a blog that transmits web development and a part of life.">
@@ -93,31 +94,29 @@
 </main>
 {% include './_footer.html' %}
 </div>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- js -->
-<!-- <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script> -->
-<script defer src="{% static 'js/main.js' %}"></script>
 <script defer>
 window.addEventListener( 'load', function(){
-  $(function(){
-  const slides = $("#slideImgs").find("picture");
-  const slideLength = slides.length;
-  let now = 0;
-  let next = 1;
-  const fade = 2000;
-  const show = 4000;
-  slides.hide();
-  slides.eq(0).show();
-  const slidesShow = () => {
-  slides.eq(now % slideLength).fadeOut(fade).removeClass("zoom");
-  slides.eq(next % slideLength).fadeIn(fade).addClass("zoom");
-  now++;
-  next++;
-  };
-  setInterval(slidesShow, show);
-  });
-  }, false);
-  </script>
+$(function(){
+const slides = $("#slideImgs").find("picture");
+const slideLength = slides.length;
+let now = 0;
+let next = 1;
+const fade = 2000;
+const show = 4000;
+slides.hide();
+slides.eq(0).show();
+const slidesShow = () => {
+slides.eq(now % slideLength).fadeOut(fade).removeClass("zoom");
+slides.eq(next % slideLength).fadeIn(fade).addClass("zoom");
+now++;
+next++;
+};
+setInterval(slidesShow, show);
+});
+}, false);
+</script>
+<script defer src="/static/js/main.js"></script>
+<!-- <script defer src="{% static 'js/main.js' %}"></script> -->
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
 </body>
 </html>
