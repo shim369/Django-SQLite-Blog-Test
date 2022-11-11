@@ -102,10 +102,9 @@ header {
   width: 100%;
   font-family: $font_en;
   background: $base_color;
-  padding: 25px 0;
+  padding: 20px 0;
   @media screen and (max-width: 800px) {
     position: relative;
-    padding: 20px 0;
   }
   .container {
     display: flex;
