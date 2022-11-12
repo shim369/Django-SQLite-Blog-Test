@@ -416,84 +416,82 @@ aside {
     }
   }
 }
-.author-sec {
-  .parallax-content {
-    min-height: 500px;
-    padding: 80px 0;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    @media screen and (max-width: 800px) {
-      min-height: 300px;
-    }
-    &.img_bg {
-      background-color: $base_color;
-      background-image: url(/media/bg_parallax.webp);
-    }
-    .container {
-      max-width: $base_width;
-      .author-title {
-        font-family: $font_en;
-        color: #dadada;
-        font-size: 5rem;
-        margin-bottom: 80px;
-        text-align: right;
-        display: flex;
-        align-items: center;
+.parallax-content {
+  min-height: 500px;
+  padding: 80px 0;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  @media screen and (max-width: 800px) {
+    min-height: 300px;
+  }
+  &.img_bg {
+    background-color: $base_color;
+    background-image: url(/media/bg_parallax.webp);
+  }
+  .container {
+    max-width: $base_width;
+    .author-title {
+      font-family: $font_en;
+      color: #dadada;
+      font-size: 5rem;
+      margin-bottom: 80px;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      @media screen and (max-width: 800px) {
+        font-size: 3.5rem;
+        margin-bottom: 40px;
+      }
+      &::before {
+        margin-right: .4em;
+        content: "";
+        flex-grow: 1;
+        height: 3px;
+        background: #dadada;
+        display: block;
         @media screen and (max-width: 800px) {
-          font-size: 3.5rem;
-          margin-bottom: 40px;
-        }
-        &::before {
-          margin-right: .4em;
-          content: "";
-          flex-grow: 1;
-          height: 3px;
-          background: #dadada;
-          display: block;
-          @media screen and (max-width: 800px) {
-            height: 1.7px;
-          }
+          height: 1.7px;
         }
       }
-      .author-inner {
-        display: flex;
-        align-items: center;
+    }
+    .author-inner {
+      display: flex;
+      align-items: center;
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
+      .profile {
+        text-align: center;
+        margin-left: 5%;
         @media screen and (max-width: 800px) {
-          flex-direction: column;
+          margin-bottom: 40px;
+          margin-left: 0;
         }
-        .profile {
-          text-align: center;
-          margin-left: 5%;
-          @media screen and (max-width: 800px) {
-            margin-bottom: 40px;
-            margin-left: 0;
-          }
-          img {
-            border-radius: 50%;
-          }
-          p {
-            font-size: 1rem;
-            color: #dadada;
-            font-family: $font_en;
-            padding: 5px 0 0;
-          }
-          a {
-            color: #dadada;
-          }
+        img {
+          border-radius: 50%;
         }
-        .intro {
+        p {
+          font-size: 1rem;
           color: #dadada;
-          word-break: break-all;
-          line-height: 1.7;
-          margin-left: 5%;
-          font-family: $font_normal;
-          background: rgba(38,39,43,.6);
-          padding: 30px 5%;
-          @media screen and (max-width: 800px) {
-            margin-left: 0%;
-          }
+          font-family: $font_en;
+          padding: 5px 0 0;
+        }
+        a {
+          color: #dadada;
+        }
+      }
+      .intro {
+        color: #dadada;
+        word-break: break-all;
+        line-height: 1.7;
+        margin-left: 5%;
+        font-family: $font_normal;
+        background: rgba(38,39,43,.6);
+        padding: 30px 5%;
+        @media screen and (max-width: 800px) {
+          margin-left: 0%;
         }
       }
     }
