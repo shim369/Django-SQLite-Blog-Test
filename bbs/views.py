@@ -20,7 +20,7 @@ def index(request):
   return render(request,'bbs/index.html',{'articles': page_obj.object_list,'page_obj': page_obj})
 
 def detail(request, slug):
-  entries = Article.objects.order_by('-id')[3:]
+  entries = Article.objects.order_by('-id')[:3]
   article = get_object_or_404(Article, slug=slug)
   return render(request,'bbs/detail.html',{'article': article,'entries': entries})
 
