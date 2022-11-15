@@ -16,7 +16,7 @@ def paginate_queryset(request, queryset, count):
 
 def index(request):
   articles = Article.objects.order_by('-id')
-  page_obj = paginate_queryset(request, articles, 9)
+  page_obj = paginate_queryset(request, articles, 6)
   return render(request,'bbs/index.html',{'articles': page_obj.object_list,'page_obj': page_obj})
 
 def detail(request, slug):

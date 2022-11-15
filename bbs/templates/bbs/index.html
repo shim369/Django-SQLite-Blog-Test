@@ -68,21 +68,37 @@
             </li>
             {% endfor %}
           </ul>
-        {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}#blog">PREV</a>
-        {% endif %}
-
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+          <li class="pagination-Item">
+              <a class="pagination-Item-Link" href="?page={{ page_obj.previous_page_number }}#blog">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="pagination-Item-Link-Icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                  </svg>
+              </a>
+          </li>
+          {% endif %} 
         {% for num in page_obj.paginator.page_range %}
           {% if page_obj.number == num %}
-              <span>{{ num }}</span>
+          <li class="pagination-Item">
+            <a href="?page={{ num }}#blog" class="pagination-Item-Link isActive"><span>{{ num }}</span></a>
+          </li>
           {% else %}
-              <a href="?page={{ num }}#blog">{{ num }}</a>
+          <li class="pagination-Item">
+              <a href="?page={{ num }}#blog" class="pagination-Item-Link"><span>{{ num }}</span></a>
+          </li>
           {% endif %}
         {% endfor %}
-        
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}#blog">NEXT</a>
+        <li class="pagination-Item">
+            <a class="pagination-Item-Link" href="?page={{ page_obj.next_page_number }}#blog">
+                <svg xmlns="http://www.w3.org/2000/svg" class="pagination-Item-Link-Icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                </svg>
+            </a>
+        </li>
         {% endif %}
+        </ul>
         </article>
         {% include './_aside.html' %}
       </div>
