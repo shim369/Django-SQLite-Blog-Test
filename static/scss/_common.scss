@@ -51,7 +51,7 @@
   content: "\eab0";
   font-size: 25px;
 }
-$base_width: 1300px;
+$base_width: 1400px;
 $base_color: #161719;
 $square_light: #4e3b2f;
 $square_dark: #382b21;
@@ -346,7 +346,7 @@ main {
           flex-direction: column;
         }
         article {
-          width: 70%;
+          width: 72%;
           @media screen and (max-width: 950px) {
             width: 100%;
           }
@@ -357,7 +357,7 @@ main {
 }
 
 aside {
-  width: 26%;
+  width: 24%;
   margin-left: 4%;
   word-break: break-all;
   @media screen and (max-width: 950px) {
@@ -547,7 +547,7 @@ footer {
 }
 
 .breadcrumb-box {
-  max-width: 1300px;
+  max-width: 1400px;
   .breadcrumb {
     list-style: none;
     overflow: hidden;
