@@ -104,6 +104,13 @@
         padding-right: 10px;
       }
     }
+    a {
+      text-decoration: underline;
+      color: #457ace;
+      &:hover {
+        text-decoration: none;
+      }
+    }
     ul {
       background: #cbcbcb;
       padding: 40px 30px 40px 60px;
