@@ -1,7 +1,8 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render,get_object_or_404
 from bbs.models import Category, Article, Tag
-from django.views.generic import DetailView
+from django.views.generic import TemplateView
+# from django.views.generic import DetailView
 
 def paginate_queryset(request, queryset, count):
   paginator = Paginator(queryset, count)

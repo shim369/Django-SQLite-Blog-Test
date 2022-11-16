@@ -144,6 +144,15 @@ next++;
 };
 setInterval(slidesShow, show);
 });
+$(function(){
+  let h = 0;
+  $(".blog-card-inner h2").each(function(){
+  if($(this).height() > h) {
+  h = $(this).height();
+  }
+  });
+  $(".blog-card-inner h2").css("height", h + "px");
+});
 }, false);
 </script>
 <script defer src="/static/js/main.js"></script>
