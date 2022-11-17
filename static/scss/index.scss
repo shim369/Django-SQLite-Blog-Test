@@ -5,7 +5,7 @@
   z-index: 1;
   height: 600px;
   @media screen and (max-width: 800px) {
-    height: 42vh;
+    height: 40vh;
     min-height: 250px;
   }
   .container {
@@ -16,7 +16,7 @@
       z-index: 1;
       padding-top: 40px;
       @media screen and (max-width: 800px) {
-        padding-top: 3vh;
+        padding-top: 2vh;
       }
       &::after {
         content: '';
@@ -31,10 +31,10 @@
         background-position: 0 0, 40px 40px;
         background-size: 80px 80px;
         @media screen and (max-width: 800px) {
-          top: 8vh;
+          top: 6vh;
           background-position: 0 0, 20px 20px;
           background-size: 40px 40px;
-          width: 80%;
+          width: calc(100% + 50px);
           height: 36vh;
           min-height: 240px;
         }
