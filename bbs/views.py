@@ -20,17 +20,19 @@ def index(request):
   page_obj = paginate_queryset(request, articles, 6)
   return render(request,'bbs/index.html',{'articles': page_obj.object_list,'page_obj': page_obj})
 
-def detail(request, slug):
-  entries = Article.objects.order_by('-id')[:3]
-  article = get_object_or_404(Article, slug=slug)
-  return render(request,'bbs/detail.html',{'article': article,'entries': entries})
-
 def category(request, category):
   category = Category.objects.get(name=category)
   articles = Article.objects.order_by('-id').filter(category=category)
-  return render(request, 'bbs/index.html',{'category': category, 'articles': articles })
+  page_obj = paginate_queryset(request, articles, 6)
+  return render(request, 'bbs/list.html',{'category': category, 'articles': page_obj.object_list,'page_obj': page_obj })
 
 def tag(request, tag):
   tag = Tag.objects.get(name=tag)
   articles = Article.objects.order_by('-id').filter(tag=tag)
-  return render(request, 'bbs/index.html',{'tag': tag, 'articles': articles })
+  page_obj = paginate_queryset(request, articles, 6)
+  return render(request, 'bbs/list.html',{'tag': tag, 'articles': page_obj.object_list,'page_obj': page_obj })
+  
+def detail(request, slug):
+  entries = Article.objects.order_by('-id')[:3]
+  article = get_object_or_404(Article, slug=slug)
+  return render(request,'bbs/detail.html',{'article': article,'entries': entries})

@@ -5,7 +5,7 @@
       <ul class="globalNav">
       <li><a href="{% url 'bbs:index' %}"><span>home</span></a></li>
       {% if articles or article %}
-      {% for category in category_list %}<li><a href="/category/{{ category.name }}/#blog"><span>{{ category.name }}</span></a></li>{% endfor %}
+      {% for category in category_list %}<li><a href="/category/{{ category.name }}/"><span>{{ category.name }}</span></a></li>{% endfor %}
       {% endif %}
       <li class="li-icon">
         <a href="https://github.com/shim369" target="_blank">
