@@ -19,19 +19,19 @@ $(function () {
    });
 });
 
-$(document).ready(function(){
-   let hash = location.hash;
-   let headerHeight = $('header').innerHeight();
-   if(hash){
-      $("html, body").stop().scrollTop(0);
-      setTimeout(function(){
-         let target = $(hash),
-         position = target.offset().top - headerHeight;
-         $("html, body").animate({scrollTop:position}, 500, "swing");
-         return false;
-      });
-   }
-});
+// $(document).ready(function(){
+//    let hash = location.hash;
+//    let headerHeight = $('header').innerHeight();
+//    if(hash){
+//       $("html, body").stop().scrollTop(0);
+//       setTimeout(function(){
+//          let target = $(hash),
+//          position = target.offset().top - headerHeight;
+//          $("html, body").animate({scrollTop:position}, 500, "swing");
+//          return false;
+//       });
+//    }
+// });
 
 // $(function(){
 //    let pageTop = $('#page-top');
