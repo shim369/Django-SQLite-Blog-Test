@@ -20,10 +20,9 @@
 <main>
   <section class="blog-sec">
   <div class="container">
-    <p class="blog-title en">BLOG</p>
+    <h2 class="blog-title en">BLOG</h2>
     <div class="container-inner">
-    <article>
-      <section class="article-sec">
+      <div class="article-sec">
           <div class="article-head">
             <p class="category"><a href="{% url 'bbs:category' article.category %}">{{ article.category }}</a></p>
             <h1 class="article-title">{{ article.title }}</h1>
@@ -43,8 +42,7 @@
             <div>{{ article.content | safe }}</div>
             {% endautoescape %}
           </div>
-      </section>
-    </article>
+      </div>
     {% include './_aside.html' %}
   </div>
   

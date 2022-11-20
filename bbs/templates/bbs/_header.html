@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <p class="logo"><a href="{% url 'bbs:index' %}"><img src="/media/logo.svg" width="234" height="30" alt="TECH BLOG" loading="lazy"></a></p>
-    <nav id="header_nav" role="navigation">
+    <nav id="header_nav">
       <ul class="globalNav">
       <li><a href="{% url 'bbs:index' %}"><span>home</span></a></li>
       {% if articles or article %}

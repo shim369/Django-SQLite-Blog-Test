@@ -28,7 +28,7 @@ class Article(models.Model):
                 on_delete=models.PROTECT
               )
   tag = models.ManyToManyField(Tag, verbose_name='タグ')
-  tag_image = models.CharField('タグ画像用', max_length=200, null=True)
+  tag_image = models.CharField('画像用タグ名称', max_length=200, null=True)
 
   def __str__(self):
     return self.title
