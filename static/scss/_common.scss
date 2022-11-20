@@ -116,6 +116,10 @@ header {
       display: inherit;
       a {
         line-height: 1;
+        transition: all .8s ease;
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -304,7 +308,6 @@ header {
 
 main {
   margin-top: 95px;
-  overflow: hidden;
   background: $gray1;
   @media screen and (max-width: 800px) {
     margin-top: 0;

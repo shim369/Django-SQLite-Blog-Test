@@ -117,33 +117,34 @@
 </div>
 <script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script>
-window.addEventListener( 'load', function(){
-$(function(){
-const slides = $("#slideImgs").find("picture");
-const slideLength = slides.length;
-let now = 0;
-let next = 1;
-const fade = 2000;
-const show = 4000;
-slides.hide();
-slides.eq(0).show();
-const slidesShow = () => {
-slides.eq(now % slideLength).fadeOut(fade).removeClass("zoom");
-slides.eq(next % slideLength).fadeIn(fade).addClass("zoom");
-now++;
-next++;
-};
-setInterval(slidesShow, show);
-});
-$(function(){
-  let h = 0;
-  $(".blog-card-inner h2").each(function(){
-  if($(this).height() > h) {
-  h = $(this).height();
-  }
+window.addEventListener('load', () => {
+  $(function(){
+    const slides = $("#slideImgs").find("picture");
+    const slideLength = slides.length;
+    let now = 0;
+    let next = 1;
+    const fade = 2000;
+    const show = 4000;
+    slides.hide();
+    slides.eq(0).show();
+    const slidesShow = () => {
+      slides.eq(now % slideLength).fadeOut(fade).removeClass("zoom");
+      slides.eq(next % slideLength).fadeIn(fade).addClass("zoom");
+      now++;
+      next++;
+    };
+    setInterval(slidesShow, show);
   });
-  $(".blog-card-inner h2").css("height", h + "px");
-});
+  
+  $(function(){
+    let h = 0;
+    $(".blog-card-inner h2").each(function(){
+      if($(this).height() > h) {
+        h = $(this).height();
+      }
+    });
+    $(".blog-card-inner h2").css("height", h + "px");
+  });
 }, false);
 </script>
 <script defer src="/static/js/main.js"></script>
