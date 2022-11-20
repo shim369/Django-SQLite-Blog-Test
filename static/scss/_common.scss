@@ -318,6 +318,7 @@ main {
       margin-bottom: 80px;
       font-weight: bold;
       color: $base_color;
+      font-family: $font_en;
       @media screen and (max-width: 800px) {
         font-size: 3.5rem;
         margin-bottom: 40px;
