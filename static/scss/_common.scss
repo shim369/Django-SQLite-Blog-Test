@@ -517,9 +517,6 @@ footer {
   bottom: 10px;
   right: 10px;
   z-index: 9999;
-  @media screen and (max-width: 800px) {
-   bottom: 20px;
-  }
   a {
     display: flex;
     background: $base_color;

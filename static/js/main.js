@@ -19,32 +19,9 @@ $(function () {
    });
 });
 
-// $(document).ready(function(){
-//    let hash = location.hash;
-//    let headerHeight = $('header').innerHeight();
-//    if(hash){
-//       $("html, body").stop().scrollTop(0);
-//       setTimeout(function(){
-//          let target = $(hash),
-//          position = target.offset().top - headerHeight;
-//          $("html, body").animate({scrollTop:position}, 500, "swing");
-//          return false;
-//       });
-//    }
-// });
-
-// $(function(){
-//    let pageTop = $('#page-top');
-//    pageTop.hide();
-//    $(window).scroll(function () {
-//       if ($(this).scrollTop() > 100) {
-//          pageTop.fadeIn();
-//       } else {
-//          pageTop.fadeOut();
-//       }
-//    });
-//    pageTop.click(function () {
-//       $('body, html').animate({ scrollTop: 0 }, 500);
-//       return false;
-//    });
-// });
+$(function () {
+   $('#page-top').on('click', ()=>{
+      $('body,html').animate({ scrollTop: 0 }, 1000);
+      return false;   
+   });
+});
