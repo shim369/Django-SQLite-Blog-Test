@@ -18,10 +18,11 @@
 <div class="wrapper">
 {% include './_header.html' %}
 <main>
-  <section class="blog-sec">
+  <div class="blog-sec">
   <div class="container">
     <h2 class="blog-title en">BLOG</h2>
     <div class="container-inner">
+      <article>
       <div class="article-sec">
           <div class="article-head">
             <p class="category"><a href="{% url 'bbs:category' article.category %}">{{ article.category }}</a></p>
@@ -43,6 +44,7 @@
             {% endautoescape %}
           </div>
       </div>
+    </article>
     {% include './_aside.html' %}
   </div>
   
@@ -64,7 +66,7 @@
     </ol>
     </div>
   </div>
-  </section>
+  </div>
   {% include './_author.html' %}
 </main>
 {% include './_footer.html' %}
