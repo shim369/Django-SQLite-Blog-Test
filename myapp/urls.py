@@ -7,6 +7,7 @@ from django.contrib.sitemaps.views import sitemap
 from .sitemaps import (
     BlogPostSitemap,StaticViewSitemap
 )
+from django.views.generic import TemplateView
 
 sitemaps = {
     'blog': BlogPostSitemap,
@@ -18,6 +19,7 @@ urlpatterns = [
     path('', include('bbs.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+	path('sw.js', (TemplateView.as_view(template_name="sw.js",content_type='application/javascript', )), name='sw.js'),
 ]
 
 # 開発環境下のみ設定
