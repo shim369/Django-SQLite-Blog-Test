@@ -387,7 +387,7 @@ aside {
     width: 48%;
     margin: 0 0 15px;
     a {
-      padding: 10px 20px;
+      padding: 15px 20px;
       color: $gray2;
       background: $base_color;
       width: 100%;
@@ -408,14 +408,14 @@ aside {
   li {
     margin: 0 15px 15px 0;
     a {
-      padding: 10px 20px;
+      padding: 15px 20px;
       color: $gray2;
       background: $base_color;
       display: block;
       text-align: center;
       font-family: $font_en;
       transition: all .8s ease;
-      border-radius: 20px;
+      border-radius: 25px;
       &:hover {
         opacity: .8;
       }

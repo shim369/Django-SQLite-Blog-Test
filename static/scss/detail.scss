@@ -143,9 +143,9 @@ article {
     }
     pre {
       font-size: 18px;
-      background: #cbcbcb;
+      background: $base_color;
       padding: 40px 25px;
-      color: $base_color;
+      color: #cbcbcb;
       line-height: 1.5;
       margin-bottom: 40px;
       white-space: pre-wrap;
