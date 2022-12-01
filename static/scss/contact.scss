@@ -17,8 +17,8 @@
 		max-width: 100%;
 		border: none;
 		padding: 1rem 1rem;
-		background: darken(#f9f9f9, 10%);
-		color: darken(#f9f9f9, 50%);
+		background: #e8e7ea;
+		color: $base_color;
 		&[type=checkbox] {
 			width: auto;
 			border: none;
