@@ -1,0 +1,64 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1">
+<link rel="stylesheet" href="/static/css/contact.css">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>Contact | TECH BLOG</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://code.jquery.com">
+<link rel="dns-prefetch" href="https://code.jquery.com">
+<link rel="canonical" href="">
+<link rel="icon" href="/static/img/favicon.ico">
+<link rel="manifest" href="/static/json/manifest.json">
+<script>
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', function() {
+		navigator.serviceWorker.register('../sw.js').then(function() { console.log('Service Worker Registered');
+		},function(err) {
+		console.log('ServiceWorker registration failed: ', err);
+		});
+	});
+}
+</script>
+</head>
+<body id="top">
+<div class="wrapper">
+{% include './_header.html' %}
+<main>
+	<div class="blog-sec">
+		<div class="container">
+		  <p class="blog-title">CONTACT</p>
+		  <div class="container-inner">
+			<article>
+				<form action="{% url 'bbs:contact_form' %}" method="post">
+					{% csrf_token %}
+				<table class="contact-table">
+					{{ form.as_table }}
+				</table>
+				<button id="submit" class="en" type="submit">SEND</button>
+				</form>
+			</article>
+			{% include './_aside.html' %}
+		  </div>
+		  <div class="breadcrumb-box">
+			<ol class="breadcrumb">
+				<li>
+				<a href="{% url 'bbs:index' %}">
+					<i class="icon-home3"></i>HOME
+				</a>
+				</li>
+				<li>contact</li>
+			</ol>
+		  </div>
+		</div>
+	</div>
+	{% include './_author.html' %}
+</main>
+{% include './_footer.html' %}
+</div>
+<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script defer src="/static/js/main.js"></script>
+</body>
+</html>

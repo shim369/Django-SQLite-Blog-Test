@@ -4,7 +4,7 @@
   <ul class="wn-list">
     {% for article in entries %}
     <li>
-      <a href="">
+      <a href="{% url 'bbs:detail' article.slug %}">
         <picture>
           <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="82" height="82">
           <img src="/media/{{ article.tag_image }}.jpg" width="82" height="82" alt="">
@@ -12,7 +12,7 @@
       </a>
       <div class="wn-list-sentence">
         <time datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
-        <a href="">
+        <a href="{% url 'bbs:detail' article.slug %}">
         <h4>{{ article.title }}</h4>
         </a>
       </div>

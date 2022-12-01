@@ -1,0 +1,57 @@
+@import 'common';
+.contact-table {
+	width: 100%;
+	label {
+		display: block;
+	}
+	th {
+		text-align: left;
+		width: 30%;
+		font-family: $font_en;
+	}
+	th,td {
+		padding: 20px 2%;
+	}
+	input, textarea {
+		width: 100%;
+		max-width: 100%;
+		border: none;
+		padding: 1rem 1rem;
+		background: darken(#f9f9f9, 10%);
+		color: darken(#f9f9f9, 50%);
+		&[type=checkbox] {
+			width: auto;
+			border: none;
+		}
+	}
+	textarea {
+		@media screen and (max-width: 800px) {
+		  width: 100%;
+		}
+	}
+}
+button {
+	background: $base_color;
+	color: $gray2;
+	display: block;
+	width: 40%;
+	margin:15px auto 60px;
+	padding: 15px 20px;
+	transition: all .8s ease;
+	cursor: pointer;
+	&:hover {
+	  opacity: 0.8;
+	}
+}
+.send-comp {
+	padding: 30px;
+	background: rgba(214,212,212,.7);
+	margin-bottom: 80px;
+	text-align: center;
+	h1 {
+		margin-bottom: 20px;
+	}
+	p {
+		line-height: 1.3;
+	}
+}

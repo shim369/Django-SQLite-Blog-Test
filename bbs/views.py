@@ -4,6 +4,12 @@ from bbs.models import Category, Article, Tag
 from django.views.generic import TemplateView
 # from django.views.generic import DetailView
 
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from django.http import HttpResponse
+from django.conf import settings
+from django.core.mail import BadHeaderError, send_mail
+
 def paginate_queryset(request, queryset, count):
   paginator = Paginator(queryset, count)
   page = request.GET.get('page')
@@ -36,3 +42,30 @@ def detail(request, slug):
   entries = Article.objects.order_by('-id')[:3]
   article = get_object_or_404(Article, slug=slug)
   return render(request,'bbs/detail.html',{'article': article,'entries': entries})
+
+def complete(request):
+    entries = Article.objects.order_by('-id')[:3]
+    article = Article.objects.order_by('-id')
+    return render(request, 'bbs/complete.html', {'article':article,'entries': entries})
+
+def contact_form(request):
+    entries = Article.objects.order_by('-id')[:3]
+    article = Article.objects.order_by('-id')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['sender']
+            myself = form.cleaned_data['myself']
+            recipients = [settings.EMAIL_HOST_USER]
+            if myself:
+                recipients.append(sender)
+            try:
+                send_mail(subject, message, sender, recipients)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found')
+            return redirect('bbs:complete')
+    else:
+        form = ContactForm()
+    return render(request, 'bbs/contact.html', {'form': form,'article':article,'entries': entries})
