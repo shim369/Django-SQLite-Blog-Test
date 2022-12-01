@@ -47,6 +47,10 @@
 .icon-circle-right:before {
   content: "\ea42";
 }
+.icon-mail4:before {
+  content: "\ea86";
+  font-size: 25px;
+}
 .icon-github:before {
   content: "\eab0";
   font-size: 25px;
@@ -445,7 +449,7 @@ aside {
     width: 48%;
     margin: 0 0 15px;
     a {
-      padding: 15px 20px;
+      padding: 15px 0;
       color: $gray2;
       background: $base_color;
       width: 100%;
