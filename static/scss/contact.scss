@@ -1,13 +1,31 @@
 @import 'common';
+article {
+	h1 {
+		margin-bottom: 10px;
+		font-family: $font-normal;
+		text-align: center;
+		@media screen and (max-width: 800px) {
+			text-align: left;
+			font-size: 1.2rem;
+		}
+	}
+	h2 {
+		text-align: center;
+		font-family: $font-normal;
+		margin: 30px 0 60px;
+		font-size: 1.2rem;
+	}
+}
 .contact-table {
 	width: 100%;
+	margin-top: 30px;
 	label {
 		display: block;
 	}
 	th {
 		text-align: left;
 		width: 30%;
-		font-family: $font_en;
+		font-family: $font-normal;
 	}
 	th,td {
 		padding: 20px 2%;
@@ -35,7 +53,7 @@ button {
 	color: $gray2;
 	display: block;
 	width: 40%;
-	margin:15px auto 60px;
+	margin:30px auto 0;
 	padding: 15px 20px;
 	transition: all .8s ease;
 	cursor: pointer;
