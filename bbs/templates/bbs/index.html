@@ -35,7 +35,7 @@ if ('serviceWorker' in navigator) {
       </div>
       <div class="slide-wrap">
         <div class="slide-box" id="slideImgs">
-          <picture>
+          <picture class="current">
             <source srcset="/media/1.webp" type="image/webp" width="1240" height="540">
             <img src="/media/1.jpg" width="1240" height="540" alt="">
           </picture>
@@ -111,11 +111,6 @@ if ('serviceWorker' in navigator) {
                 <i class="icon-home3"></i>HOME
             </a>
           </li>
-          {% if category %}
-          <li>
-              {{ category.name }}
-          </li>
-          {% endif %}
         </ol>
         </div>
       </div>
@@ -125,36 +120,33 @@ if ('serviceWorker' in navigator) {
 </main>
 {% include './_footer.html' %}
 </div>
+
 <script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script>
 window.addEventListener('load', () => {
-  $(function(){
-    const slides = $("#slideImgs").find("picture");
-    const slideLength = slides.length;
-    let now = 0;
-    let next = 1;
-    const fade = 2000;
-    const show = 4000;
-    slides.hide();
-    slides.eq(0).show();
-    const slidesShow = () => {
-      slides.eq(now % slideLength).fadeOut(fade).removeClass("zoom");
-      slides.eq(next % slideLength).fadeIn(fade).addClass("zoom");
-      now++;
-      next++;
-    };
-    setInterval(slidesShow, show);
-  });
-  
-  $(function(){
-    let h = 0;
-    $(".blog-card-inner h2").each(function(){
-      if($(this).height() > h) {
-        h = $(this).height();
-      }
-    });
-    $(".blog-card-inner h2").css("height", h + "px");
-  });
+function play() {
+	setTimeout(() => {
+		images[currentIndex].classList.remove('current');
+		currentIndex++;
+		if(currentIndex > images.length -1) {
+		currentIndex = 0;
+		}
+		images[currentIndex].classList.add('current');
+		play();
+	},3000);
+}
+const images = document.querySelectorAll('.slide-box picture');
+let currentIndex = 0;
+play();
+$(function(){
+	let h = 0;
+	$(".blog-card-inner h2").each(function(){
+		if($(this).height() > h) {
+			h = $(this).height();
+		}
+	});
+	$(".blog-card-inner h2").css("height", h + "px");
+});
 }, false);
 </script>
 <script defer src="/static/js/main.js"></script>

@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-_n&#rp^g$pe1gm92_-9vob=6t!(fzr7%s^n3(!^^lg#vtyrc+l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
@@ -151,12 +152,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
-    }
-}
 
 
 try:
