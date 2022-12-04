@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, minimum-scale=1">
 <link rel="stylesheet" href="/static/css/index.css">
+<!-- <link rel="preload" href="/static/css/index.css" as="style" onload="this.rel='stylesheet'"> -->
 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <title>TECH BLOG</title>
 <meta name="description" content="It's a blog that transmits web development and a part of life.">
@@ -36,16 +37,16 @@ if ('serviceWorker' in navigator) {
       <div class="slide-wrap">
         <div class="slide-box" id="slideImgs">
           <picture class="current">
-            <source srcset="/media/1.webp" type="image/webp" width="1240" height="540">
-            <img src="/media/1.jpg" width="1240" height="540" alt="">
+            <source srcset="/media/1.webp" type="image/webp">
+            <img src="/media/1.jpg" width="1340" height="520" alt="">
           </picture>
           <picture>
-            <source srcset="/media/2.webp" type="image/webp" width="1240" height="540">
-            <img src="/media/2.jpg" width="1240" height="540" alt="">
+            <source srcset="/media/2.webp" type="image/webp">
+            <img src="/media/2.jpg" width="1340" height="520" alt="">
           </picture>
           <picture>
-            <source srcset="/media/3.webp" type="image/webp" width="1240" height="540">
-            <img src="/media/3.jpg" width="1240" height="540" alt="">
+            <source srcset="/media/3.webp" type="image/webp">
+            <img src="/media/3.jpg" width="1340" height="520" alt="">
           </picture>
         </div>
       </div>
@@ -120,10 +121,7 @@ if ('serviceWorker' in navigator) {
 </main>
 {% include './_footer.html' %}
 </div>
-
-<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script>
-window.addEventListener('load', () => {
 function play() {
 	setTimeout(() => {
 		images[currentIndex].classList.remove('current');
@@ -138,6 +136,10 @@ function play() {
 const images = document.querySelectorAll('.slide-box picture');
 let currentIndex = 0;
 play();
+</script>
+<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+window.addEventListener('load', () => {
 $(function(){
 	let h = 0;
 	$(".blog-card-inner h2").each(function(){
