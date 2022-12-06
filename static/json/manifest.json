@@ -1,6 +1,7 @@
 {
   "name": "TECH BLOG - WEB DEVELOPMENT AND LIFE BLOG",
   "short_name": "TECH BLOG",
+  "id": "/",
   "start_url": "/",
   "categories": ["developer","development","developer tools","design","graphics & design","lifestyle"],
   "description": "TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma, SEO are the main categories.",

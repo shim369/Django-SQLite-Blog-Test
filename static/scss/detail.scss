@@ -16,7 +16,7 @@ background: #d1d1d17d;
     line-height: 1.5;
     font-size: 20px;
     padding: 60px 40px 0;
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 520px) {
       padding: 20px 4%;
     }
     .category {
@@ -30,7 +30,7 @@ background: #d1d1d17d;
         font-size: 20px;
         background: $base_color;
         font-family: $font_en;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 520px) {
           font-size: 15px;
         }
       }
@@ -44,7 +44,7 @@ background: #d1d1d17d;
       overflow: hidden;
       z-index: 1;
       font-family: $font_normal;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 520px) {
         font-size: 1.2rem;
         margin-top: 35px;
         margin-bottom: 20px;
@@ -53,7 +53,7 @@ background: #d1d1d17d;
     .date {
       text-align: left;
       margin-bottom: 40px;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 520px) {
         margin-bottom: 0;
         font-size: 1.2rem;
       }
@@ -72,7 +72,7 @@ background: #d1d1d17d;
     font-size: 20px;
     padding: 60px 40px;
     font-family: $font_normal;
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 520px) {
       padding: 20px 4%;
     }
     h2 {
@@ -113,7 +113,7 @@ background: #d1d1d17d;
       background: #cbcbcb;
       padding: 40px 30px 40px 60px;
       margin-bottom: 30px;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 520px) {
         padding: 40px 4% 40px 12%;
       }
       li {
@@ -130,7 +130,7 @@ background: #d1d1d17d;
       background: #cbcbcb;
       padding: 40px 30px 40px 60px;
       margin-bottom: 30px;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 520px) {
         padding: 40px 4% 40px 12%;
       }
       li {
