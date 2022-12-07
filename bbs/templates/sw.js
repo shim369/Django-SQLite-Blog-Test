@@ -3,13 +3,10 @@ const urlsToCache = [
 	'/media/bg_parallax.webp',
 	'/media/1.webp',
 	'/media/2.webp',
-	'/media/3.webp',
-	'/media/django.webp',
-	'/media/chrome.webp',
 	'/media/logo.svg',
 	'/media/author.webp',
 	'/static/css/index.css',
-	'/static/fonts/icomoon.ttf?8j24pb',
+	'/static/fonts/icomoon.ttf',
 	'/static/fonts/MontserratSubrayada-Bold.ttf',
 	'/static/js/main.js'
 ];
