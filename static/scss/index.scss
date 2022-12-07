@@ -191,7 +191,7 @@
         margin: 15px 0 0;
         font-weight: 600;
 		@media screen and (max-width: 520px) {
-		  height: auto !important;
+		  height: auto;
 		}
         a {
           color: $base_color;
