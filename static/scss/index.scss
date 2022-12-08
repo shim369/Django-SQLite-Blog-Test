@@ -87,39 +87,59 @@
     }
     .catch {
       position: absolute;
-      top: 60%;
+      top: 35%;
       left: 2%;
       z-index: 999;
       text-align: left;
+	  width: 100%;
+	  &.fade-up {
+		animation: fade-up 1s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;
+	  }
+	  @keyframes fade-up {
+		0% {
+		  transform: translateY(50px);
+		  opacity: 0;
+		}
+		100% {
+		  opacity: 1;
+		  transform: translateY(0);
+		}
+	  }
+      @media screen and (max-width: 1100px) {
+		top: 45%;
+      }
+      @media screen and (max-width: 800px) {
+		top: 50%;
+      }
       @media screen and (max-width: 520px) {
-        left: 2%;
+		top: 55%;
       }
       h1 {
+		font-family: $font_en;
         color: #fff;
         font-size: 5rem;
         text-shadow: 1px 2px 3px #1c1c1c;
+		margin-bottom: 20px;
         @media screen and (max-width: 1100px) {
           font-size: 3.5rem;
+        }
+        @media screen and (max-width: 800px) {
+          font-size: 3rem;
         }
         @media screen and (max-width: 520px) {
           font-size: 1.8rem;
         }
-        &.text-animation {
-          &.fade-up {
-            animation: fade-up 1s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;
-          }
-        }
-        @keyframes fade-up {
-          0% {
-            transform: translateY(50px);
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
       }
+	  p {
+        color: #fff;
+        font-size: 1rem;
+		line-height: 1.6;
+        text-shadow: 1px 2px 3px #1c1c1c;
+		max-width: 95%;
+        @media screen and (max-width: 520px) {
+          display: none;
+        }
+	  }
     }
   }
 }
