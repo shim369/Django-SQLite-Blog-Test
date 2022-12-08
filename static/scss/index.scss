@@ -1,6 +1,7 @@
 @import 'common';
 .mainv-sec {
-  background: #1e1f21;
+//   background: #1e1f21;
+  background: #161719;
   position: relative;
   z-index: 1;
   height: 600px;
@@ -21,7 +22,7 @@
       &::after {
         content: '';
         display: block;
-        width: 600px;
+        width: 56%;
         height: 520px;
         position: absolute;
         top: 120px;
@@ -30,11 +31,13 @@
         background-image: repeating-linear-gradient(45deg, $square_dark 25%, transparent 25%, transparent 75%, $square_dark 75%, $square_dark), repeating-linear-gradient(45deg, $square_dark 25%, $square_light 25%, $square_light 75%, $square_dark 75%, $square_dark);
         background-position: 0 0, 40px 40px;
         background-size: 80px 80px;
+        @media screen and (max-width: 800px) {
+			width: 64%;
+		}
         @media screen and (max-width: 520px) {
           top: 30px;
           background-position: 0 0, 20px 20px;
           background-size: 40px 40px;
-          width: calc(100% + 50px);
           height: 220px;
           min-height: 220px;
         }
@@ -42,15 +45,18 @@
       .slide-box {
         list-style: none;
         position: relative;
-        width: 100%;
+        width: 56%;
         height: 520px;
-        margin: 0 auto;
+        margin: 0 0 0 auto;
         overflow: hidden;
         z-index: 2;
         background: $base_color;
+        @media screen and (max-width: 800px) {
+			width: 100%;
+		}
         @media screen and (max-width: 520px) {
-          height: 220px;
-          min-height: 220px;
+        	height: 220px;
+        	min-height: 220px;
         }
         picture {
 			opacity: 0;
@@ -82,11 +88,11 @@
     .catch {
       position: absolute;
       top: 60%;
-      right: 0;
+      left: 2%;
       z-index: 999;
-      text-align: right;
+      text-align: left;
       @media screen and (max-width: 520px) {
-        right: 2%;
+        left: 2%;
       }
       h1 {
         color: #fff;
