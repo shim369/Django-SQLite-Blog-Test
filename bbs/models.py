@@ -2,7 +2,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-# 投稿内容を格納するモデルを定義
+
 class Category(models.Model):
   name = models.CharField('カテゴリー', max_length=50)
 

@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, minimum-scale=1">
-<link rel="preload" href="/static/css/detail.css" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="/static/css/detail.css?{% now 'U' %}">
 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <title>{{ article.title }}</title>
 <meta name="description" content="{{ article.description }}">
-<meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="preconnect" href="https://code.jquery.com">
 <link rel="dns-prefetch" href="https://code.jquery.com">
 <link rel="canonical" href="">

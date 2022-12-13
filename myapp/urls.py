@@ -14,7 +14,6 @@ sitemaps = {
     'static': StaticViewSitemap,
 }
 urlpatterns = [
-    # path('admin/', admin.site.urls),
     path('admin/', admin.site.urls),
     path('', include('bbs.urls')),
     path('summernote/', include('django_summernote.urls')),

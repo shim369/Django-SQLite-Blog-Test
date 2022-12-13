@@ -1,22 +1,26 @@
 <header>
   <div class="container">
-    <p class="logo"><a href="{% url 'bbs:index' %}"><img src="/media/logo.svg" width="234" height="30" alt="TECH BLOG" loading="lazy"></a></p>
+    <p class="logo"><a href="{% url 'bbs:index' %}"><img src="/media/logo.svg" width="234" height="30" alt="TECH BLOG"></a></p>
     <nav id="header_nav">
       <ul class="globalNav">
       <li><a href="{% url 'bbs:index' %}"><span>home</span></a></li>
       {% if articles or article %}
       {% for category in category_list %}<li><a href="/category/{{ category.name }}/"><span>{{ category.name }}</span></a></li>{% endfor %}
       {% endif %}
+		<li>
+			<a href="/weight/">
+			<span>life</span>
+			</a>
+	 	</li>
 		<li class="li-icon">
-			<a href="{% url 'bbs:contact_form' %}">
-			<i class="icon-mail4"></i>
-			<span>contact</span>
+			<a href="{% url 'bbs:contact_form' %}" title="contact">
+				<i class="icon-mail4"></i>
 			</a>
 		</li>
       <li class="li-icon">
-        <a href="https://github.com/shim369" target="_blank">
+        <a href="https://github.com/shim369" target="_blank" title="github">
           <i class="icon-github"></i>
-          <span>github</span>
+          <!-- <span>github</span> -->
         </a>
         <!-- <a href="" target="_blank" itemprop="url"><i class="icon-instagram"></i></a> -->
       </li>

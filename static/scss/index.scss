@@ -32,7 +32,7 @@
         background-position: 0 0, 40px 40px;
         background-size: 80px 80px;
         @media screen and (max-width: 800px) {
-			width: 64%;
+			width: 100%;
 		}
         @media screen and (max-width: 520px) {
           top: 30px;
@@ -112,10 +112,13 @@
 		top: 50%;
       }
       @media screen and (max-width: 520px) {
-		bottom: 20%;
+		top: 40%;
       }
       h1 {
 		margin-bottom: 15px;
+		@media screen and (max-width: 800px) {
+			margin-bottom: 0;
+		}
 		img {
 			width: 798px;
 			max-width: 90%;
