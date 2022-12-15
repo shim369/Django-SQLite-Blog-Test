@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, minimum-scale=1">
 <link rel="stylesheet" href="/static/css/detail.css?{% now 'U' %}">
+<!-- <link rel="stylesheet" href="/static/css/contact.css?{% now 'U' %}"> -->
 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<title></title>
+<title>Fitness | TECH BLOG</title>
 <meta name="description" content="">
 <link rel="preconnect" href="https://code.jquery.com">
 <link rel="dns-prefetch" href="https://code.jquery.com">
@@ -19,14 +20,14 @@
 	<main>
 		<div class="blog-sec">
 		  <div class="container">
-			<p class="blog-title">LIFE</p>
+			<p class="blog-title">FITNESS</p>
 			<div class="container-inner">
 				<article>
 					<div class="article-head">
 					  <p class="category"><a tabindex="-1">LIFE</a></p>
-					  <h1 class="article-title"></h1>
+					  <h1 class="article-title">[Fitness] Nintendo Switch Fit Boxingでダイエットを始めたので、日々の体重を公開する</h1>
 					  <p class="date">
-						<time datetime=""><i class="icon-clock2"></i></time><time datetime=""><i class="icon-spinner11"></i>
+						<time datetime="2022-12-15"><i class="icon-clock2"></i>2022/12/15</time><time datetime="2022-12-16"><i class="icon-spinner11"></i>2022/12/16
 						</time>
 					  </p>
 					</div>
@@ -38,6 +39,19 @@
 					</figure>
 					<div class="article-contents">
 					<p class="weight-png"><img src="/media/weight.png" alt="weight graph"></p>
+					<form action="{% url 'bbs:chart_data' %}" method="post">
+						{% csrf_token %}
+					<table class="contact-table">
+					<tr>
+						<th>Height<br>(cm)</th><td>{{ bmi_form.height }}</td>
+					</tr>
+					<tr>
+						<th>Weight<br>(kg)</th><td>{{ bmi_form.weight }}</td>
+					</tr>
+					</table>
+					<button id="submit" type="submit">SEND</button>
+					</form>
+					<p>{{bmi}}  {{optimal}}</p>
 					</div>
 				</article>
 				{% include './_aside.html' %}
@@ -49,7 +63,7 @@
 	{% include './_footer.html' %}
 	</div>
 	<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-	<script defer src="/static/js/main.js"></script>
+	<script defer src="/static/js/main.js?{% now 'U' %}"></script>
 	<script>
 	if ('serviceWorker' in navigator) {
 		window.addEventListener('load', function() {

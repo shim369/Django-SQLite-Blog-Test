@@ -7,11 +7,11 @@
       {% if articles or article %}
       {% for category in category_list %}<li><a href="/category/{{ category.name }}/"><span>{{ category.name }}</span></a></li>{% endfor %}
       {% endif %}
-		<li>
-			<a href="/weight/">
-			<span>life</span>
-			</a>
-	 	</li>
+		 <li class="li-icon">
+			 <a href="/fitness/" title="fitness">
+				 <i class="icon-fitness"></i>
+			 </a>
+		 </li>
 		<li class="li-icon">
 			<a href="{% url 'bbs:contact_form' %}" title="contact">
 				<i class="icon-mail4"></i>
@@ -20,7 +20,6 @@
       <li class="li-icon">
         <a href="https://github.com/shim369" target="_blank" title="github">
           <i class="icon-github"></i>
-          <!-- <span>github</span> -->
         </a>
         <!-- <a href="" target="_blank" itemprop="url"><i class="icon-instagram"></i></a> -->
       </li>
