@@ -32,19 +32,15 @@ if ('serviceWorker' in navigator) {
 		  <p class="blog-title">CONTACT</p>
 		  <div class="container-inner">
 			<article>
-				<div class="contact-form">
+				<h1 class="">Depending on the content, I may not be able to reply.<br>Also, replies may be delayed. I apologize in advance. I am sorry.</h1>
 				<form action="{% url 'bbs:contact_form' %}" method="post">
-				{% csrf_token %}
-				{{ form.subject }}
-				{{ form.sender }}
-				{{ form.message }}
-				{{ form.myself }}
-				<label for="box">Receive the same</label>		
-				<h1>Depending on the content, I may not be able to reply.<br>Also, replies may be delayed. I apologize in advance. I'm sorry.</h1>
+					{% csrf_token %}
+				<table class="contact-table">
+					{{ form.as_table }}
+				</table>
 				<h2>Did you check before sending?</h2>
 				<button id="submit" class="en" type="submit">SEND</button>
 				</form>
-				</div>
 			</article>
 			{% include './_aside.html' %}
 		  </div>

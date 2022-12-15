@@ -1,15 +1,7 @@
 from django import forms
 
 class ContactForm(forms.Form):
-	subject = forms.CharField(max_length=100,
-            widget=forms.TextInput(
-            attrs={'placeholder':'Subject', 'class':'contact-input'}))
-	sender = forms.EmailField(widget=forms.TextInput(
-            attrs={'placeholder':'E-mail', 'class':'contact-input'}))
-	message = forms.CharField(widget=forms.Textarea(
-            attrs={'placeholder':'Message', 'class':'contact-input'}))
-	myself = forms.BooleanField(required=False,widget=forms.CheckboxInput(attrs={'id':'box'}))
-
-class BmiForm(forms.Form):
-	height = forms.IntegerField()
-	weight = forms.IntegerField()
+	subject = forms.CharField(label='Subject', max_length=100)
+	sender = forms.EmailField(label='E-mail')
+	message = forms.CharField(label='Message', widget=forms.Textarea)
+	myself = forms.BooleanField(label='Receive the same', required=False)
