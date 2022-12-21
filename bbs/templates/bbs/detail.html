@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://code.jquery.com">
 <link rel="dns-prefetch" href="https://code.jquery.com">
 <link rel="canonical" href="">
-<link rel="icon" href="/media/favicon.ico">
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
 <link rel="manifest" href="/static/json/manifest.json">
 </head>
 <body id="top">
@@ -68,7 +68,7 @@
 {% include './_footer.html' %}
 </div>
 <script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script defer src="/static/js/main.js"></script>
+<script defer src="/static/js/main.js?{% now 'U' %}"></script>
 <!-- <script defer src="{% static 'js/main.js' %}"></script> -->
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}/"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org","@type": "Blog","blogPost": [{"@type": "BlogPosting","headline": "{{ article.title }}","description": "{{ article.description }}","url": "https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}","mainEntityOfPage": {"@type":"WebPage","@id":"https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}"},"datePublished": "{{ article.created_at|date:'Y-m-d' }}","dateModified": "{{ article.updated_at|date:'Y-m-d' }}","image": {"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/{{ article.thumbnail_image }}","width": "868","height": "400"},"author": {"@type": "Person","name": "S Ohtani","url": "https://github.com/shim369"},"publisher": {"@type": "Organization","name": "TECH BLOG","logo":{"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/logo.jpg","width": "254","height": "83"}},"articleBody": "{{ article.article_body }}"}]}</script>

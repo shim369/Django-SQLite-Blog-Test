@@ -1,0 +1,155 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1">
+<link rel="stylesheet" href="/static/css/detail.css?{% now 'U' %}">
+<!-- <link rel="stylesheet" href="/static/css/contact.css?{% now 'U' %}"> -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>[Fitness] BMI is bad results, so I start exercising with Switch's Fitness Boxing.</title>
+<meta name="description" content="Perhaps because I've gained weight recently, I get tired easily and get sick easily, so I decided to measure my BMI.I thought about making my own BMI with python I was learning and measuring it, so I created a BMI Calculator.I start exercising today with the game Fitness Boxing for Nintendo Switch.">
+<link rel="preconnect" href="https://code.jquery.com">
+<link rel="dns-prefetch" href="https://code.jquery.com">
+<link rel="canonical" href="">
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+<link rel="manifest" href="/static/json/manifest.json">
+</head>
+<body id="top">
+	<div class="wrapper">
+	{% include './_header.html' %}
+	<main>
+		<div class="blog-sec">
+		  <div class="container">
+			<p class="blog-title">FITNESS</p>
+			<div class="container-inner">
+				<article>
+					<div class="article-head">
+					  <p class="category"><span>LIFE</span></p>
+					  <h1 class="article-title">[Fitness] BMI is bad results, so I start exercising with Switch's Fitness Boxing.</h1>
+					  <p class="date">
+						<time datetime="2022-12-18"><i class="icon-clock2"></i>2022/12/18</time><time datetime="2022-12-18"><i class="icon-spinner11"></i>2022/12/18
+						</time>
+					  </p>
+					</div>
+					<figure class="thumbnail">
+						<picture>
+						  <source srcset="/media/fitness.webp" type="image/webp" width="868" height="400">
+						  <img src="/media/fitness.jpg" width="868" height="400" alt="weight">
+						</picture>
+					</figure>
+					<div class="article-contents">
+					<p>Perhaps because I've gained weight recently, I get tired easily and get sick easily, so I decided to measure my BMI.</p>
+					<p>I thought about making my own BMI with python I was learning and measuring it, so I created a BMI Calculator.</p>
+					<p>Please try it yourself.</p>
+					<h2>Calculate BMI with BMI Calculator based on height and weight.</h2>
+					<p>Enter your height and weight and press the SEND BUTTON to measure your BMI.</p>
+					<form action="{% url 'bbs:chart_data' %}" method="post">
+						{% csrf_token %}
+					<table class="bmi-table">
+					<tr><th colspan="2">BMI Calculator</th></tr>
+					<tr>
+						<td><label>Height(cm)<br>{{ bmi_form.height }}</label></td>
+						<td><label>Weight(kg)<br>{{ bmi_form.weight }}</label></td>
+					</tr>
+					<tr>
+						<td colspan="2"><button id="submit" type="submit">SEND</button></td>
+					</tr>
+					{% if bmi %}
+					<tr>
+						<td colspan="2"><div class="bmi-result">BMI = <span>{{bmi}}</span></div></td>
+					</tr>
+					{% endif %}
+					</table>
+					</form>
+					
+					<h2>BMI（Body Mass Index） by WHO</h2>
+					<p>Compare BMI results with the BMI table for adults published by WHO.</p>
+					<p>It is used for both men and women, age 20 or older.</p>
+					<p>As you measure with BMI Calculator, the table will be colored according to your BMI result.</p>
+					<table class="bmi-table2">
+						<tbody>
+						<tr>
+						  <th><strong>Classification</strong></th>
+						  <th><strong>BMI（kg/m<sup>2</sup>）</strong></th>
+						</tr>
+						<tr {% if bmi < 16.00 %}class="bmi-bg"{% endif %}>
+						  <td><span>Severe thinness</span></td>
+						  <td><span>- 16.00</span></td>
+						</tr>
+						<tr {% if bmi >= 16.00 and bmi < 17.00 %}class="bmi-bg"{% endif %}>
+						  <td><span>Moderate thinness</span></td>
+						  <td><span>16.00 - 17.00</span></td>
+						</tr>
+						<tr {% if bmi >= 17.00 and bmi < 18.50 %}class="bmi-bg"{% endif %}>
+						  <td>Mild thinness</td>
+						  <td>17.00 - 18.50</td>
+						</tr>
+						<tr {% if bmi >= 18.50 and bmi < 25.00 %}class="bmi-bg"{% endif %}>
+						  <td>Normal range</td>
+						  <td>18.50 - 25.00</td>
+						</tr>
+						<tr {% if bmi >= 25.00 and bmi < 30.00 %}class="bmi-bg"{% endif %}>
+						  <td>Pre-obese</td>
+						  <td>25.00 - 30.00</td>
+						</tr>
+						<tr {% if bmi >= 30.00 and bmi < 35.00 %}class="bmi-bg"{% endif %}>
+						  <td>Obese class1</td>
+						  <td>30.00 - 35.00</td>
+						</tr>
+						<tr {% if bmi >= 35.00 and bmi < 40.00 %}class="bmi-bg"{% endif %}>
+						  <td>Obese class2</td>
+						  <td>35.00 - 40.00</td>
+						</tr>
+						<tr {% if bmi >= 40.00 %}class="bmi-bg"{% endif %}>
+						  <td>Obese class3</td>
+						  <td>40.00 -</td>
+						</tr>
+				  		</tbody>
+					</table>
+					<h2>I found out I was slightly obese, so I started dieting with Nintendo Switch Fitness Boxing.</h2>
+					<p>My BMI was 28.38, which turned out to be slightly overweight, so I decided to start dieting.</p>
+					<p>I start exercising today with the game Fitness Boxing for Nintendo Switch.</p>
+					<p>In addition, the results of the exercise will be published in the following graphs that are automatically updated by python.</p>
+					<p>I will also introduce how to create graphs with python at a later date.</p>
+					<p class="text-center"><img src="/media/weight.png?{% now 'U' %}" width="640" height="480" alt="weight graph"></p>
+					<p>The Fit Boxing game is a great way to have fun exercising at home even on rainy days.</p>
+					<p>Let's challenge together!</p>
+					</div>
+				</article>
+				{% include './_aside.html' %}
+			</div>
+			<div class="breadcrumb-box">
+			<ol class="breadcrumb">
+			  <li>
+				<a href="{% url "bbs:index" %}">
+					<i class="icon-home3"></i>HOME
+				</a>
+			  </li>
+			  <li>
+				LIFE
+			  </li>
+			  <li>
+				[Fitness] BMI is bad results, so I start exercising with Switch's Fitness Boxing.
+			  </li>
+			</ol>
+			</div>
+		  </div>
+		</div>
+	{% include './_author.html' %}
+	</main>
+	{% include './_footer.html' %}
+	</div>
+	<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<script defer src="/static/js/main.js?{% now 'U' %}"></script>
+	<script>
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('../sw.js').then(function() { console.log('Service Worker Registered');
+			},function(err) {
+			console.log('ServiceWorker registration failed: ', err);
+			});
+		});
+	}
+	</script>
+</body>
+</html>

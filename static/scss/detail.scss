@@ -1,6 +1,5 @@
 @import 'common';
 article {
-//   background: #D9D9D9;
 background: #d1d1d17d;
   margin-bottom: 60px;
   .thumbnail {
@@ -24,7 +23,7 @@ background: #d1d1d17d;
       top: 0;
       left: 0;
       display: grid;
-      a {
+      a,span {
         color: $gray2;
         padding: 10px 20px;
         font-size: 20px;
@@ -79,7 +78,7 @@ background: #d1d1d17d;
       background: #cbcbcb;
       padding: 20px 15px 18px;
       color: $base_color;
-      border-left: 9px solid #725e51;
+      border-left: 9px solid $square_light;
       line-height: 1.5;
       margin-bottom: 40px;
       font-size: 1.2rem;
@@ -89,7 +88,7 @@ background: #d1d1d17d;
       font-weight: 600;
       letter-spacing: 1.6px;
       padding: 0 15px;
-      border-left: 9px solid #725e51;
+      border-left: 9px solid $square_light;
       color: $base_color;
       font-weight: 600;
       margin-top: 60px;
@@ -153,9 +152,107 @@ background: #d1d1d17d;
     }
 	img {
 		max-width: 100%;
+		height: auto;
 	}
-	.weight-png {
+	.text-center {
 		text-align: center;
 	}
+	table {
+		margin-bottom: 40px;
+	}
   }
+}
+.bmi-table {
+	width: 100%;
+	background: #cbcbcb;
+	padding: 30px 20px;
+	th {
+		line-height: 1;
+		font-size: 1.8rem;
+		font-weight:700;
+	}
+	td {
+		padding: 0 15px;
+		label {
+			padding-top: 30px;
+			padding-bottom: 10px;
+			font-size: 1.3rem;
+			text-align: center;
+			display: block;
+			font-weight: bold;
+		}
+	}
+	.bmi-input {
+		color: $base_color;
+		background: rgba(188,188,188,0.5);
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		border: 2px solid $base_color;
+		transition: all 0.3s;
+		padding: 13px;
+		width: 100%;
+		box-sizing: border-box;
+		outline: 0;
+		font-family: $font_normal;
+		&:focus {
+			border:2px solid $base_color;
+		}
+	}
+}
+
+.bmi-result {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 30px;
+	margin-bottom: 0px !important;
+	border: 2px dashed $square_light;
+    padding: 25px;
+	background: #fcf7e8;
+	color: $square_light;
+	span {
+		color: $square_light;
+		padding: 13px 20px 5px;
+		font-size: 2rem;
+		border-bottom: 2px solid $square_light;
+	}
+}
+[type="submit"] {
+	width: 100%;
+	background: $square_light;
+	border: 0;
+	cursor: pointer;
+	color: $gray2;
+	font-size: 1.3rem;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	transition: all .8s ease;
+	font-weight: 700;
+	margin-top: 30px;
+	&:hover {
+		opacity: .8;
+	}
+}
+.bmi-table2 {
+	width: 100%;
+	border-collapse: collapse;
+	// background: #fcf7e8;
+	th,td {
+		border: 2px solid $base_color;
+		padding: 5px;
+		text-align: center;
+	}
+	th {
+		background: $base_color;
+		color: $gray2;
+	}
+	td {
+		color: $base_color;
+	}
+}
+.bmi-bg {
+	background: $square_light;
+	td {
+		color: $gray2;
+	}
 }

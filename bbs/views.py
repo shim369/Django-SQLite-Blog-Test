@@ -5,16 +5,16 @@ from django.views.generic import TemplateView
 # from django.views.generic import DetailView
 
 from django.shortcuts import render, redirect
-from .forms import ContactForm
+from .forms import ContactForm, BmiForm
 from django.http import HttpResponse
 from django.conf import settings
 from django.core.mail import BadHeaderError, send_mail
 
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt , pandas as pd
 
 def paginate_queryset(request, queryset, count):
 	paginator = Paginator(queryset, count)
@@ -80,10 +80,59 @@ def contact_form(request):
 def chart_data(request):
 	article = Article.objects.order_by('-id')
 	entries = Article.objects.order_by('-id')[:3]
-	data = pd.read_csv("static/csv/weight - weight.csv")
-	plt.figure(1)
-	plt.plot(data['date'],data['weight'],marker="o")
-	plt.xlabel('date')
-	plt.ylabel('weight')
-	plt.savefig('media/weight.png')
-	return render(request, 'bbs/weight.html',{'article':article,'entries': entries})
+	data = pd.read_csv('C:/Users/ohtan/python/myapp/static/csv/weight - weight.csv')
+
+	with plt.style.context('Solarize_Light2'):
+		plt.figure(1)
+		plt.plot(data['date'],data['weight'].astype('float'),marker = "o", color = "#4e3b2f")
+		plt.title('Weight Graph')
+		plt.xlabel('Date')
+		plt.ylabel('Weight')
+		plt.savefig('C:/Users/ohtan/python/myapp/media/weight.png')
+
+	params = {
+		'bmi_form':BmiForm(),
+		'article':article,
+		'entries': entries,
+	}
+	if (request.method == 'POST'):
+		height = float(request.POST['height'])
+		weight = float(request.POST['weight'])
+
+		params['bmi'] = round(weight / ((height/100) * (height/100)), 2)
+	return render(request, 'bbs/fitness.html',params)
+
+# import os
+# import gspread
+# from oauth2client.service_account import ServiceAccountCredentials
+# def chart_data(request):
+# 	article = Article.objects.order_by('-id')
+# 	entries = Article.objects.order_by('-id')[:3]
+# 	scope = ['https://spreadsheets.google.com/feeds']
+# 	ssid = '1ODQN3-YAnN-gyJeLyKD_dX0-m74_ul6qxHgCcUlcP30'
+# 	path = os.path.expanduser('C:/Users/ohtan/python/myapp/static/json/xxx.json')
+
+# 	credentials = ServiceAccountCredentials.from_json_keyfile_name(path, scope)
+# 	gc = gspread.authorize(credentials)
+# 	workbook   = gc.open_by_key(ssid)
+# 	worksheet  = workbook.worksheet("weight")
+# 	data = pd.DataFrame(worksheet.get_all_values()[1:], columns=worksheet.get_all_values()[0])
+# 	with plt.style.context('Solarize_Light2'):
+# 		plt.figure(1)
+# 		plt.plot(data['date'],data['weight'].astype('float'),marker = "o", color = "#4e3b2f")
+# 		plt.title('Weight Graph')
+# 		plt.xlabel('Date')
+# 		plt.ylabel('Weight')
+# 		plt.savefig('C:/Users/ohtan/python/myapp/media/weight.png')
+
+# 	params = {
+# 		'bmi_form':BmiForm(),
+# 		'article':article,
+# 		'entries': entries,
+# 	}
+# 	if (request.method == 'POST'):
+# 		height = float(request.POST['height'])
+# 		weight = float(request.POST['weight'])
+
+# 		params['bmi'] = round(weight / ((height/100) * (height/100)), 2)
+# 	return render(request, 'bbs/fitness.html',params)

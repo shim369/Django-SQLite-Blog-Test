@@ -1,11 +1,8 @@
 $(function(){
-  let nav = $('.globalNav');
-  nav.clone().appendTo('#js_nav');
-   $('#header_nav li').hover(()=>{
-    $("ul:not(:animated)", this).slideDown();
-   }, ()=>{
-    $("ul.dropdown", this).slideUp();
-   });
+	let nav = $('.globalNav');
+	nav.clone().appendTo('#js_nav');
+	let iconNav = $('.iconNav');
+	iconNav.clone().appendTo('#js_nav');
 });
 
 $(function(){

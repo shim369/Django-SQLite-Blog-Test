@@ -7,11 +7,11 @@
 @font-face {
 	font-family: 'icomoon';
 	font-display: swap;
-	src:  url('/static/fonts/icomoon.eot?u6agxf');
-	src:  url('/static/fonts/icomoon.eot?u6agxf#iefix') format('embedded-opentype'),
-	  url('/static/fonts/icomoon.ttf?u6agxf') format('truetype'),
-	  url('/static/fonts/icomoon.woff?u6agxf') format('woff'),
-	  url('/static/fonts/icomoon.svg?u6agxf#icomoon') format('svg');
+	src:  url('/static/fonts/icomoon.eot?8peh2k');
+	src:  url('/static/fonts/icomoon.eot?8peh2k#iefix') format('embedded-opentype'),
+	  url('/static/fonts/icomoon.ttf?8peh2k') format('truetype'),
+	  url('/static/fonts/icomoon.woff?8peh2k') format('woff'),
+	  url('/static/fonts/icomoon.svg?8peh2k#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -25,6 +25,11 @@
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fitness:before {
+	content: "\e900";
+	font-size: 25px;
 }
 .icon-home3:before {
   content: "\e902";
@@ -64,7 +69,6 @@ $font_normal: YuGothic,Arial,Meiryo,sans-serif;
 $font_en: "MontserratSubrayada-Bold",Meiryo,sans-serif;
 .en {
   font-family: $font_en;
-  font-display: swap;
 }
 * {
   margin: 0;
@@ -76,12 +80,10 @@ ul {
 }
 p,time {
   font-family: $font_normal;
-  font-display: swap;
 }
 a {
   text-decoration: none;
   font-family: $font_normal;
-  font-display: swap;
 }
 .wrapper {
   overflow-x: hidden;
@@ -113,9 +115,11 @@ header {
   z-index: 100;
   width: 100%;
   font-family: $font_en;
-  font-display: swap;
   background: $base_color;
-  padding: 20px 0;
+  padding: 15px 0;
+  @media screen and (max-width: 800px) {
+	padding: 20px 0;
+  }
   @media screen and (max-width: 520px) {
     position: relative;
   }
@@ -131,11 +135,44 @@ header {
         &:hover {
           opacity: 0.8;
         }
+		img {
+			@media screen and (max-width: 520px) {
+				max-width: 180px;
+			}
+		}
       }
     }
   }
 }
-
+.iconNav {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 5px;
+	@media screen and (max-width: 800px) {
+	  display: none;
+	}
+	.li-icon {
+		margin-right: 0;
+		display: flex;
+		justify-content: center;
+		a {
+			position: relative;
+			font-size: 1.1rem;
+			padding: 5px 10px;
+			cursor: pointer;
+			color: #dadada;
+			text-align: center;
+			line-height: 1;
+			display: flex;
+			align-items: center;
+			font-family: "MontserratSubrayada-Bold",Meiryo,sans-serif;
+			transition: all .8s ease;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+}
 #header_nav {
   position: relative;
   @media screen and (max-width: 800px) {
@@ -154,6 +191,10 @@ header {
         margin-right: 0;
         display: flex;
         justify-content: center;
+		display: none;
+		@media screen and (max-width: 800px) {
+			display: block;
+		}
         a {
           padding: 10px;
           flex-direction: column;
@@ -177,41 +218,9 @@ header {
         display: flex;
         align-items: center;
         font-family: $font_en;
-		font-display: swap;
         transition: all .8s ease;
         &:hover {
           opacity: 0.8;
-        }
-      }
-    }
-  }
-  .dropdown {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 38px;
-    z-index: 9999;
-    display: none;
-    .dropdown-li {
-      border-right: 0;
-      margin: 0 0 5px;
-      &:not(:last-child) {
-      margin-bottom: 5px;
-      }
-      a {
-        text-align: center;
-        display: block;
-        background: #edecec;
-        color: $base_color;
-        font-size: 1rem;
-        padding: 10px;
-        font-family: $font_normal;
-		font-display: swap;
-      }
-      &:hover {
-        a {
-          color: #edecec;
-          background: $base_color;
         }
       }
     }
@@ -224,10 +233,6 @@ header {
   }
 }
 @media screen and (max-width: 800px) {
-  .globalNav {
-    width: 90%;
-    margin-top: 80px;
-  }
   .menu {
     position: fixed;
     top: 0;
@@ -239,33 +244,22 @@ header {
     opacity: 0;
     z-index: 9999;
     display: flex;
-    align-items: flex-start;
+	align-items: center;
     justify-content: center;
+    flex-direction: column;
     li {
       max-width: 400px;
       margin: 20px auto 40px;
       text-align: center;
       opacity: 0;
-      .dropdown {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 20px;
-        .dropdown-li {
-          margin: 0;
-          width: 48%;
-          margin-bottom: 20px;
-          &:nth-last-child(2),&:last-child {
-            margin-bottom: 0;
-          }
-          a {
-            color: #edecec;
-            padding: 10px;
-            background: #583216;
-          }
-        }
-      }
     }
+	.iconNav {
+	  display: none;
+	  @media screen and (max-width: 800px) {
+		  display: block;
+		  margin-right: 0;
+	  }
+	}
   }
   .side-open {
     .menu {
@@ -277,7 +271,6 @@ header {
         span {
           color: #edecec;
           font-family: $font_en;
-		  font-display: swap;
           margin-top: 5px;
         }
         a {
@@ -289,7 +282,6 @@ header {
           align-items: center;
           color: #edecec;
           font-family: $font_en;
-		  font-display: swap;
         }
       }
     }
@@ -341,7 +333,6 @@ main {
       font-weight: bold;
       color: $base_color;
       font-family: $font_en;
-	  font-display: swap;
       @media screen and (max-width: 520px) {
         font-size: 2.8rem;
         margin-bottom: 40px;
@@ -396,7 +387,6 @@ aside {
     text-align: center;
     margin-bottom: 25px;
     font-family: $font_en;
-	font-display: swap;
     font-size: 1.8rem;
   }
 }
@@ -441,7 +431,6 @@ aside {
 	  word-break: break-all;
 	  line-height: 1.2;
 	  font-family: $font_normal;
-	  font-display: swap;
 	  font-weight: normal;
 	}
 	time {
@@ -470,7 +459,6 @@ aside {
       display: block;
       text-align: center;
       font-family: $font_en;
-	  font-display: swap;
       transition: all .8s ease;
       &:hover {
         opacity: .8;
@@ -491,7 +479,6 @@ aside {
       display: block;
       text-align: center;
       font-family: $font_en;
-	  font-display: swap;
       transition: all .8s ease;
       border-radius: 25px;
       &:hover {
@@ -516,7 +503,6 @@ aside {
     max-width: $base_width;
     .author-title {
       font-family: $font_en;
-	  font-display: swap;
       color: $gray2;
       font-size: 5rem;
       margin-bottom: 80px;
@@ -559,7 +545,6 @@ aside {
           font-size: 1rem;
           color: $gray2;
           font-family: $font_en;
-		  font-display: swap;
           padding: 5px 0 0;
         }
         a {
@@ -572,7 +557,6 @@ aside {
         line-height: 1.7;
         margin-left: 5%;
         font-family: $font_normal;
-		font-display: swap;
         background: rgba(38,39,43,.6);
         padding: 30px 5%;
         @media screen and (max-width: 520px) {
@@ -590,7 +574,6 @@ footer {
     color: $gray2;
     background: $base_color;
     font-family: $font_en;
-	font-display: swap;
   }
 }
 
@@ -626,7 +609,6 @@ footer {
       padding-top: 2px;
       color: #fff;
       font-family: $font_en;
-	  font-display: swap;
     }
   }
 	&.left-move{
@@ -672,7 +654,6 @@ footer {
       display: inline;
       list-style: none;
       font-family: $font_en;
-	  font-display: swap;
       @media screen and (max-width: 520px) {
         margin-bottom: 15px;
       }
@@ -692,7 +673,6 @@ footer {
       }
       a {
         font-family: $font_en;
-		font-display: swap;
         text-decoration: none;
         color: $base_color;
         word-break: break-all;
