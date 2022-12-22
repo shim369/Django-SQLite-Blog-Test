@@ -6,16 +6,14 @@
     <li>
       <a href="{% url 'bbs:detail' article.slug %}">
         <picture>
-          <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="82" height="82">
-          <img src="/media/{{ article.tag_image }}.jpg" width="82" height="82" alt="">
+          <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="123" height="82">
+          <img src="/media/{{ article.tag_image }}.jpg" width="123" height="82" alt="">
         </picture>
+		<div class="wn-list-sentence">
+		  <h4>{{ article.title }}</h4>
+		  <time datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
+		</div>
       </a>
-      <div class="wn-list-sentence">
-        <time datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
-        <a href="{% url 'bbs:detail' article.slug %}">
-        <h4>{{ article.title }}</h4>
-        </a>
-      </div>
     </li>
     {% endfor %}
   </ul>
