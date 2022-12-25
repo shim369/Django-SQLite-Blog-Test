@@ -5,12 +5,14 @@ from django.urls import reverse
 
 class Category(models.Model):
   name = models.CharField('カテゴリー', max_length=50)
+  slug = models.SlugField('スラッグ', unique=True, null=True)
 
   def __str__(self):
       return self.name
 
 class Tag(models.Model):
   name = models.CharField('タグ', max_length=50)
+  slug = models.SlugField('スラッグ', unique=True, null=True)
 
   def __str__(self):
       return self.name
