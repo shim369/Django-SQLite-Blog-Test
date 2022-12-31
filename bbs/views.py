@@ -93,12 +93,14 @@ def chart_data(request):
 		plt.ylabel('Weight')
 		plt.savefig('C:/Users/ohtan/python/myapp/media/weight.png')
 		pngDate = strftime("%Y/%m/%d", time.localtime(os.path.getmtime('C:/Users/ohtan/python/myapp/media/weight.png')))
+		pngDateTime = strftime("%Y-%m-%d", time.localtime(os.path.getmtime('C:/Users/ohtan/python/myapp/media/weight.png')))
 
 	params = {
 		'bmi_form':BmiForm(),
 		'article':article,
 		'entries': entries,
 		'pngDate': pngDate,
+		'pngDateTime': pngDateTime,
 	}
 	if (request.method == 'POST'):
 		height = float(request.POST['height'])
