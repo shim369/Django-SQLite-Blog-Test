@@ -77,6 +77,9 @@ def contact_form(request):
 	return render(request, 'bbs/contact.html', {'form': form,'article':article,'entries': entries})
 
 
+import os
+import time
+from time import strftime
 def chart_data(request):
 	article = Article.objects.order_by('-id')
 	entries = Article.objects.order_by('-id')[:3]
@@ -89,11 +92,13 @@ def chart_data(request):
 		plt.xlabel('Date')
 		plt.ylabel('Weight')
 		plt.savefig('C:/Users/ohtan/python/myapp/media/weight.png')
+		pngDate = strftime("%Y/%m/%d", time.localtime(os.path.getmtime('C:/Users/ohtan/python/myapp/media/weight.png')))
 
 	params = {
 		'bmi_form':BmiForm(),
 		'article':article,
 		'entries': entries,
+		'pngDate': pngDate,
 	}
 	if (request.method == 'POST'):
 		height = float(request.POST['height'])
