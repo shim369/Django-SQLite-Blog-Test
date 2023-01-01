@@ -12,6 +12,6 @@ class ContactForm(forms.Form):
 
 class BmiForm(forms.Form):
 	height = forms.IntegerField(widget=forms.NumberInput(
-            attrs={'min':'1', 'class':'bmi-input'}))
+            attrs={'min':'1', 'class':'bmi-input', 'step': '0.01'}))
 	weight = forms.IntegerField(widget=forms.NumberInput(
-            attrs={'min':'1', 'class':'bmi-input'}))
+            attrs={'min':'1', 'class':'bmi-input', 'step': '0.01'}))
