@@ -78,29 +78,37 @@ def contact_form(request):
 
 
 import os
-import time
-from time import strftime
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 def chart_data(request):
 	article = Article.objects.order_by('-id')
 	entries = Article.objects.order_by('-id')[:3]
-	data = pd.read_csv('C:/Users/ohtan/python/myapp/static/csv/weight - weight.csv')
+	# scope = ['https://spreadsheets.google.com/feeds']
+	# ssid = '1ODQN3-YAnN-gyJeLyKD_dX0-m74_ul6qxHgCcUlcP30'
+	# path = os.path.expanduser('C:/Users/ohtan/python/myapp/static/json/xxx.json')
 
-	with plt.style.context('Solarize_Light2'):
-		plt.figure(1)
-		plt.plot(data['date'],data['weight'].astype('float'),marker = "o", color = "#4e3b2f")
-		plt.title('Weight Graph')
-		plt.xlabel('Date')
-		plt.ylabel('Weight')
-		plt.savefig('C:/Users/ohtan/python/myapp/media/weight.png')
-		pngDate = strftime("%Y/%m/%d", time.localtime(os.path.getmtime('C:/Users/ohtan/python/myapp/media/weight.png')))
-		pngDateTime = strftime("%Y-%m-%d", time.localtime(os.path.getmtime('C:/Users/ohtan/python/myapp/media/weight.png')))
+	# credentials = ServiceAccountCredentials.from_json_keyfile_name(path, scope)
+	# gc = gspread.authorize(credentials)
+	# workbook   = gc.open_by_key(ssid)
+	# worksheet  = workbook.worksheet("weight")
+	# data = pd.DataFrame(worksheet.get_all_values()[1:], columns=worksheet.get_all_values()[0])
+	# pngDate = str(worksheet.col_values(1)[-1])
+	# pngDateTime = pngDate.replace('/', '-')
+	# with plt.style.context('Solarize_Light2'):
+	# plt.rcParams["figure.figsize"] = (10,10)
+	# plt.xticks(rotation=90, size='small')
+	# plt.plot(data['date'],data['weight'].astype('float'),marker = "o", color = "#4e3b2f")
+	# plt.title('Weight Graph')
+	# plt.xlabel('Date')
+	# plt.ylabel('Weight')
+	# 	plt.savefig('C:/Users/ohtan/python/myapp/media/weight.png')
 
 	params = {
 		'bmi_form':BmiForm(),
 		'article':article,
 		'entries': entries,
-		'pngDate': pngDate,
-		'pngDateTime': pngDateTime,
+		# 'pngDate': pngDate,
+		# 'pngDateTime': pngDateTime,
 	}
 	if (request.method == 'POST'):
 		height = float(request.POST['height'])
@@ -108,38 +116,3 @@ def chart_data(request):
 
 		params['bmi'] = round(weight / ((height/100) * (height/100)), 2)
 	return render(request, 'bbs/fitness.html',params)
-
-# import os
-# import gspread
-# from oauth2client.service_account import ServiceAccountCredentials
-# def chart_data(request):
-# 	article = Article.objects.order_by('-id')
-# 	entries = Article.objects.order_by('-id')[:3]
-# 	scope = ['https://spreadsheets.google.com/feeds']
-# 	ssid = '1ODQN3-YAnN-gyJeLyKD_dX0-m74_ul6qxHgCcUlcP30'
-# 	path = os.path.expanduser('C:/Users/ohtan/python/myapp/static/json/xxx.json')
-
-# 	credentials = ServiceAccountCredentials.from_json_keyfile_name(path, scope)
-# 	gc = gspread.authorize(credentials)
-# 	workbook   = gc.open_by_key(ssid)
-# 	worksheet  = workbook.worksheet("weight")
-# 	data = pd.DataFrame(worksheet.get_all_values()[1:], columns=worksheet.get_all_values()[0])
-# 	with plt.style.context('Solarize_Light2'):
-# 		plt.figure(1)
-# 		plt.plot(data['date'],data['weight'].astype('float'),marker = "o", color = "#4e3b2f")
-# 		plt.title('Weight Graph')
-# 		plt.xlabel('Date')
-# 		plt.ylabel('Weight')
-# 		plt.savefig('C:/Users/ohtan/python/myapp/media/weight.png')
-
-# 	params = {
-# 		'bmi_form':BmiForm(),
-# 		'article':article,
-# 		'entries': entries,
-# 	}
-# 	if (request.method == 'POST'):
-# 		height = float(request.POST['height'])
-# 		weight = float(request.POST['weight'])
-
-# 		params['bmi'] = round(weight / ((height/100) * (height/100)), 2)
-# 	return render(request, 'bbs/fitness.html',params)
