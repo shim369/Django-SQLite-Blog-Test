@@ -1,0 +1,24 @@
+.btn {
+	background-color: $square_light;
+	border: solid thin $square_light;
+	color: #bdbaba;
+	display: inline-block;
+	line-height: 1;
+	width: 100%;
+	padding: 15px 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	transition: all .8s ease;
+	margin-top: 15px;
+	i {
+		margin-left: 5px;
+	}
+	&:hover {
+		background-color: transparent;
+		border: solid thin $square_dark;
+		color: $square_dark;
+	}
+}

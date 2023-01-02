@@ -63,7 +63,7 @@
                 <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datePublished"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
                 <h2 itemprop="name headline"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}" itemprop="url">{{ article.title }}</a></h2>
                 <p itemprop="description"><a href="{% url 'bbs:detail' article.slug %}">{{ article.description| truncatechars:60 }}
-                <span class="btn1">READ MORE<i class="icon-circle-right"></i></span></a></p>
+                <span class="btn">READ MORE<i class="icon-circle-right"></i></span></a></p>
               </div>
             </li>
             {% endfor %}
