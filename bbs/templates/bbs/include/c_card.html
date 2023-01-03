@@ -13,8 +13,7 @@
 		<div class="c-card__category">{{ article.category }}</div>
 		<time class="c-card__time" datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
 		<h2 class="c-card__title"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}">{{ article.title }}</a></h2>
-		<p class="c-card__description">{{ article.description| truncatechars:60 }}</p>
-		<a href="{% url 'bbs:detail' article.slug %}" title="{{ article.description| truncatechars:60 }}"><span class="c-button">READ MORE<i class="icon-circle-right"></i></span></a>
+		<p class="c-card__description"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.description| truncatechars:60 }}">{{ article.description| truncatechars:60 }}<span class="c-button">READ MORE<i class="icon-circle-right"></i></span></a></p>
 	</div>
 </div>
 {% endfor %}
