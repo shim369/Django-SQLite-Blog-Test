@@ -1,16 +1,16 @@
 $(function(){
-	let nav = $('.globalNav');
-	nav.clone().appendTo('#js_nav');
-	let iconNav = $('.iconNav');
-	iconNav.clone().appendTo('#js_nav');
+	let nav = $('.l-header__list');
+	nav.clone().appendTo('.l-header__menu');
+	let iconNav = $('.l-header__icons');
+	iconNav.clone().appendTo('.l-header__menu');
 });
 
 $(function(){
    let $body = $('body');
-   $('#js_btn').on('click', ()=>{
+   $('.l-header__menu-btn').on('click', ()=>{
    $body.toggleClass('side-open');
    });
-   $('#js_nav').on('click', ()=>{
+   $('.l-header__menu').on('click', ()=>{
    $body.removeClass('side-open');
    });
 });

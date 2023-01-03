@@ -1,14 +1,5 @@
-article {
-	background: #d1d1d17d;
-	margin-bottom: 60px;
-	.thumbnail {
-		img {
-			width: 100%;
-			object-fit: cover;
-			height: auto;
-		}
-	}
-	.article-head {
+.p-article {
+	&__head {
 		position: relative;
 		word-break: break-all;
 		line-height: 1.5;
@@ -17,55 +8,62 @@ article {
 		@media screen and (max-width: 520px) {
 			padding: 20px 4%;
 		}
-		.category {
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: grid;
-			a,span {
-				color: $gray2;
-				padding: 10px 20px;
-				font-size: 20px;
-				background: $base_color;
-				font-family: $font_en;
-				@media screen and (max-width: 520px) {
-					font-size: 15px;
-				}
-			}
-		}
-		.article-title {
-			color: $base_color;
-			font-size: 1.5rem;
-			margin-top: 40px;
-			margin-bottom: 40px;
-			position: relative;
-			overflow: hidden;
-			z-index: 1;
-			font-family: $font_normal;
+	}
+	&__category {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: grid;
+		a,span {
+			color: $gray2;
+			padding: 10px 20px;
+			font-size: 20px;
+			background: $base_color;
+			font-family: $font_en;
 			@media screen and (max-width: 520px) {
-				font-size: 1.2rem;
-				margin-top: 35px;
-				margin-bottom: 20px;
-			}
-		}
-		.date {
-			text-align: left;
-			margin-bottom: 40px;
-			@media screen and (max-width: 520px) {
-				margin-bottom: 0;
-				font-size: 1.2rem;
-			}
-			time {
-				margin-right: 15px;
-				font-size: 1rem;
-				i {
-					padding-right: 3px;
-					font-size: 1rem;
-				}
+				font-size: 15px;
 			}
 		}
 	}
-	.article-contents {
+	&__title {
+		color: $base_color;
+		font-size: 1.5rem;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+		font-family: $font_normal;
+		@media screen and (max-width: 520px) {
+			font-size: 1.2rem;
+			margin-top: 35px;
+			margin-bottom: 20px;
+		}
+	}
+	&__date {
+		text-align: left;
+		margin-bottom: 40px;
+		@media screen and (max-width: 520px) {
+			margin-bottom: 0;
+			font-size: 1.2rem;
+		}
+	}
+	&__time {
+		margin-right: 15px;
+		font-size: 1rem;
+		i {
+			padding-right: 3px;
+			font-size: 1rem;
+		}
+	}
+	&__thumbnail {
+		img {
+			width: 100%;
+			object-fit: cover;
+			height: auto;
+		}
+	}
+	&__body {
 		word-break: break-all;
 		line-height: 1.5;
 		font-size: 20px;
@@ -74,6 +72,7 @@ article {
 		@media screen and (max-width: 520px) {
 			padding: 20px 4%;
 		}
+		/*Simplify the p-article__body that uses summer notes*/
 		h2 {
 			background: #cbcbcb;
 			padding: 20px 15px 18px;
@@ -154,112 +153,92 @@ article {
 			max-width: 100%;
 			height: auto;
 		}
-		.text-center {
-			text-align: center;
-		}
 		table {
 			margin-bottom: 40px;
 		}
 	}
-}
-
-.bmi-table {
-	width: 100%;
-	background: #cbcbcb;
-	padding: 30px 20px;
-	th {
-		line-height: 1;
-		font-size: 1.8rem;
-		font-weight:700;
-	}
-	td {
-		padding: 0 15px;
-		label {
-			padding-top: 30px;
-			padding-bottom: 10px;
-			font-size: 1.3rem;
-			text-align: center;
-			display: block;
-			font-weight: bold;
+	&__table {
+		&__bmi1 {
+			width: 100%;
+			background: #cbcbcb;
+			padding: 30px 20px;
+			margin-bottom: 40px;
+			th {
+				line-height: 1;
+				font-size: 1.8rem;
+				font-weight:700;
+			}
+			td {
+				padding: 0 15px;
+				label {
+					padding-top: 30px;
+					padding-bottom: 10px;
+					font-size: 1.3rem;
+					text-align: center;
+					display: block;
+					font-weight: bold;
+				}
+			}
+			&__input {
+				color: $base_color;
+				background: rgba(188,188,188,0.5);
+				font-weight: 500;
+				font-size: 18px;
+				line-height: 22px;
+				border: 2px solid $base_color;
+				transition: all 0.3s;
+				padding: 13px;
+				width: 100%;
+				box-sizing: border-box;
+				outline: 0;
+				font-family: $font_normal;
+				&:focus {
+					border:2px solid $base_color;
+				}
+			}
+			.bmi-result {
+				text-align: center;
+				font-weight: bold;
+				margin-top: 30px;
+				margin-bottom: 0px !important;
+				border: 2px dashed $square_light;
+				padding: 25px;
+				background: #fcf7e8;
+				color: $square_light;
+				span {
+					color: $square_light;
+					padding: 13px 20px 5px;
+					font-size: 2rem;
+					border-bottom: 2px solid $square_light;
+				}
+			}
+		}
+		&__bmi2 {
+			width: 100%;
+			border-collapse: collapse;
+			th,td {
+				border: 2px solid $base_color;
+				padding: 5px;
+				text-align: center;
+			}
+			th {
+				background: $base_color;
+				color: $gray2;
+			}
+			td {
+				color: $base_color;
+			}
+			.bmi2-bg {
+				background: $square_light;
+				td {
+					color: $gray2;
+				}
+			}
 		}
 	}
-	.bmi-input {
-		color: $base_color;
-		background: rgba(188,188,188,0.5);
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 22px;
-		border: 2px solid $base_color;
-		transition: all 0.3s;
-		padding: 13px;
-		width: 100%;
-		box-sizing: border-box;
-		outline: 0;
-		font-family: $font_normal;
-		&:focus {
-			border:2px solid $base_color;
-		}
-	}
 }
 
-.bmi-result {
-	text-align: center;
-	font-weight: bold;
-	margin-top: 30px;
-	margin-bottom: 0px !important;
-	border: 2px dashed $square_light;
-	padding: 25px;
-	background: #fcf7e8;
-	color: $square_light;
-	span {
-		color: $square_light;
-		padding: 13px 20px 5px;
-		font-size: 2rem;
-		border-bottom: 2px solid $square_light;
-	}
-}
-
-[type="submit"] {
-	width: 100%;
-	background: $square_light;
-	border: 0;
-	cursor: pointer;
-	color: $gray2;
-	font-size: 1.3rem;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	transition: all .8s ease;
-	font-weight: 700;
-	margin-top: 30px;
-	&:hover {
-		opacity: .8;
-	}
-}
-
-.bmi-table2 {
-	width: 100%;
-	border-collapse: collapse;
-	th,td {
-		border: 2px solid $base_color;
-		padding: 5px;
-		text-align: center;
-	}
-	th {
-		background: $base_color;
-		color: $gray2;
-	}
-	td {
-		color: $base_color;
-	}
-}
-
-.bmi-bg {
-	background: $square_light;
-	td {
-		color: $gray2;
-	}
-}
-
+/*Simplify read-together that uses summer notes*/
 .read-together {
 	margin: 20px 0;
 	background: #d1d1d17d;
@@ -317,7 +296,7 @@ article {
 				right: 0;
 				bottom: 0;
 				background: #161719;
-				color: #fff;
+				color: #dadada;
 				padding: 2px 10px;
 				font-family: $font_en;
 				font-size: 1rem;

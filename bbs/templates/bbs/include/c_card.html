@@ -1,0 +1,21 @@
+<div class="c-cards">
+{% for article in articles %}
+<div class="c-card">
+	<div class="c-card__img">
+		<a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}">
+			<picture>
+				<source srcset="/media/{{ article.thumbnail_image_name }}.webp" type="image/webp">
+				<img src="/media/{{ article.thumbnail_image_name }}.jpg" width="309" height="160" alt="{{ article.thumbnail_image_name }}">
+			</picture>
+		</a>
+	</div>
+	<div class="c-card__text">
+		<div class="c-card__category">{{ article.category }}</div>
+		<time class="c-card__time" datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
+		<h2 class="c-card__title"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}">{{ article.title }}</a></h2>
+		<p class="c-card__description">{{ article.description| truncatechars:60 }}</p>
+		<a href="{% url 'bbs:detail' article.slug %}" title="{{ article.description| truncatechars:60 }}"><span class="c-button">READ MORE<i class="icon-circle-right"></i></span></a>
+	</div>
+</div>
+{% endfor %}
+</div>

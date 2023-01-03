@@ -1,0 +1,77 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1">
+<link rel="stylesheet" href="/static/css/detail.css?{% now 'U' %}">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>{{ article.title }}</title>
+<meta name="description" content="{{ article.description }}">
+<link rel="preconnect" href="https://code.jquery.com">
+<link rel="dns-prefetch" href="https://code.jquery.com">
+<link rel="canonical" href="">
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+<link rel="manifest" href="/static/json/manifest.json">
+</head>
+<body id="top">
+<div class="wrapper">
+{% include './_header.html' %}
+<main>
+  <div class="blog-sec">
+    <div class="container">
+      <p class="blog-title">BLOG</p>
+      <div class="container-inner">
+        <article>
+              <div class="article-head">
+                <p class="category"><a href="{% url 'bbs:category' article.category %}">{{ article.category }}</a></p>
+                <h1 class="article-title">{{ article.title }}</h1>
+                <p class="date">
+                  <time datetime="{{ article.created_at|date:'Y-m-d' }}"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time><time datetime="{{ article.updated_at|date:'Y-m-d' }}"><i class="icon-spinner11"></i>{{ article.updated_at|date:'Y/m/d' }}
+                  </time>
+                </p>
+              </div>
+              <figure class="thumbnail">
+                  <picture>
+                    <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="868" height="400">
+                    <img src="/media/{{ article.tag_image }}.jpg" width="868" height="400" alt="{{ article.tag_image }}">
+                  </picture>
+              </figure>
+              <div class="article-contents">
+                {% autoescape off %}
+                <div>{{ article.content | safe }}</div>
+                {% endautoescape %}
+              </div>
+        </article>
+        {% include './_aside.html' %}
+      </div>
+      <div class="breadcrumb-box">
+      <ol class="breadcrumb">
+        <li>
+          <a href="{% url "bbs:index" %}">
+              <i class="icon-home3"></i>HOME
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'bbs:category' article.category %}">
+              {{ article.category.name }}
+          </a>
+        </li>
+        <li>
+          {{ article.title }}
+        </li>
+      </ol>
+      </div>
+    </div>
+  </div>
+  {% include './_author.html' %}
+</main>
+{% include './_footer.html' %}
+</div>
+<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script defer src="/static/js/main.js?{% now 'U' %}"></script>
+<!-- <script defer src="{% static 'js/main.js' %}"></script> -->
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}/"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "Blog","blogPost": [{"@type": "BlogPosting","headline": "{{ article.title }}","description": "{{ article.description }}","url": "https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}","mainEntityOfPage": {"@type":"WebPage","@id":"https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}"},"datePublished": "{{ article.created_at|date:'Y-m-d' }}","dateModified": "{{ article.updated_at|date:'Y-m-d' }}","image": {"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/{{ article.thumbnail_image }}","width": "868","height": "400"},"author": {"@type": "Person","name": "S Ohtani","url": "https://github.com/shim369"},"publisher": {"@type": "Organization","name": "TECH BLOG","logo":{"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/logo.jpg","width": "254","height": "83"}},"articleBody": "{{ article.article_body }}"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"item": {"@id": "https://sohtani.pythonanywhere.com/","name": "home"}},{"@type": "ListItem","position": 2,"item": {"@id": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}/","name": "{{ article.category.name }}"}},{"@type": "ListItem","position": 3,"item": {"@id": "https://sohtani.pythonanywhere.com{% url 'bbs:detail' article.slug %}","name": "{{ article.title }}"}}]}</script>
+</body>
+</html>

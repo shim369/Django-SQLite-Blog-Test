@@ -1,0 +1,162 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>TECH BLOG</title>
+<meta name="description" content="It's a blog that transmits web development and a part of life.">
+<link rel="stylesheet" href="/static/css/index.css?{% now 'U' %}">
+<link rel="preconnect" href="https://code.jquery.com">
+<link rel="dns-prefetch" href="https://code.jquery.com">
+<link rel="canonical" href="">
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+<link rel="manifest" href="/static/json/manifest.json">
+</head>
+<body id="top">
+<div class="wrapper">
+{% include './_header.html' %}
+<main itemscope itemtype="https://schema.org/Blog">
+  <div itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <section class="mainv-sec">
+      <div class="container">
+      <div class="catch fade-up">
+        <h1><img src="/media/h1.svg" alt="WEB DEVELOPMENT AND LIFE BLOG" width="798" height="156"></h1>
+		<p>This is a blog where I output web technologies and tools I have learned in my daily life.<br>It is only a small amount of notes, so you will only get a hint or two,<br>but I hope you will visit here from time to time. Thank you from Japan.</p>
+      </div>
+      <div class="slide-wrap">
+        <div class="slide-box">
+          <picture class="current">
+			<source srcset="/media/1_sp.webp" media="(max-width:520px)" type="image/webp">
+			<source srcset="/media/1_sp.jpg" media="(max-width:520px)">
+			<source srcset="/media/1.webp" type="image/webp">
+			<img src="/media/1.jpg" alt="TECH BLOG slide1">
+          </picture>
+          <picture>
+			<source srcset="/media/2_sp.webp" media="(max-width:520px)" type="image/webp">
+			<source srcset="/media/2_sp.jpg" media="(max-width:520px)">
+			<source srcset="/media/2.webp" type="image/webp">
+			<img src="/media/2.jpg" alt="TECH BLOG slide2">
+          </picture>
+        </div>
+      </div>
+    </div>
+    </section>
+    <div class="blog-sec">
+      <div class="container">
+        <p class="blog-title">BLOG</p>
+        <div class="container-inner">
+        <article>
+          <ul itemprop="articleBody" class="blog-card-list">
+            {% for article in articles %}
+            <li class="blog-card">
+              <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="blog-card-img">
+                <a href="{% url 'bbs:detail' article.slug %}" title="">
+                <picture>
+                  <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="280" height="150">
+                  <img src="/media/{{ article.tag_image }}.jpg" width="280" height="150" itemprop="url" alt="">
+                  </picture>
+                </a>
+              </div>
+              <div class="blog-card-inner">
+                <div class="category en">{{ article.category }}</div>
+                <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datePublished"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
+                <h2 itemprop="name headline"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}" itemprop="url">{{ article.title }}</a></h2>
+                <p itemprop="description"><a href="{% url 'bbs:detail' article.slug %}">{{ article.description| truncatechars:60 }}
+                <span class="btn">READ MORE<i class="icon-circle-right"></i></span></a></p>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+          <li class="pagination-Item">
+              <a class="pagination-Item-Link" href="?page={{ page_obj.previous_page_number }}">PREV</a>
+          </li>
+          {% endif %} 
+        {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+          <li class="pagination-Item">
+            <a href="?page={{ num }}" class="pagination-Item-Link isActive"><span>{{ num }}</span></a>
+          </li>
+          {% else %}
+          <li class="pagination-Item">
+              <a href="?page={{ num }}" class="pagination-Item-Link"><span>{{ num }}</span></a>
+          </li>
+          {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class="pagination-Item">
+            <a class="pagination-Item-Link" href="?page={{ page_obj.next_page_number }}">NEXT</a>
+        </li>
+        {% endif %}
+        </ul>
+        </article>
+        {% include './_aside.html' %}
+      </div>
+          
+      <div class="breadcrumb-box">
+        <ol class="breadcrumb">
+          <li>
+            <a href="{% url 'bbs:index' %}">
+                <i class="icon-home3"></i>HOME
+            </a>
+          </li>
+        </ol>
+        </div>
+      </div>
+    </div>
+    {% include './_author.html' %}
+  </div>
+</main>
+{% include './_footer.html' %}
+</div>
+<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+window.addEventListener('load', () => {
+function play() {
+	setTimeout(() => {
+		images[currentIndex].classList.remove('current');
+		currentIndex++;
+		if(currentIndex > images.length -1) {
+		currentIndex = 0;
+		}
+		images[currentIndex].classList.add('current');
+		play();
+	},3000);
+}
+const images = document.querySelectorAll('.slide-box picture');
+let currentIndex = 0;
+play();
+
+let windowWidth = window.innerWidth;
+let breakPointA = 800;
+let isTabletSize = (windowWidth > breakPointA);
+if(isTabletSize){
+	$(function(){
+		let h = 0;
+		$(".blog-card-inner h2").each(function(){
+			if($(this).height() > h) {
+				h = $(this).height();
+			}
+		});
+		$(".blog-card-inner h2").css("height", h + "px");
+	});
+}
+}, false);
+</script>
+<script defer src="/static/js/main.js?{% now 'U' %}"></script>
+<script>
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', function() {
+		navigator.serviceWorker.register('sw.js').then(function() { console.log('Service Worker Registered');
+		},function(err) {
+		console.log('ServiceWorker registration failed: ', err);
+		});
+	});
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"item": {"@id": "https://sohtani.pythonanywhere.com/","name": "home"}},{"@type": "ListItem","position": 2,"item": {"@id": "https://sohtani.pythonanywhere.com/category/{{ category.name }}/","name": "{{ article.category.name }}"}}]}</script>
+</body>
+</html>

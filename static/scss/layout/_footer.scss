@@ -1,8 +1,8 @@
-footer {
+.l-footer {
 	@media screen and (max-width: 800px) {
 		position: relative;
 	}
-	.copyright {
+	&__copyright {
 		padding: 15px 0;
 		text-align: center;
 		color: $gray2;

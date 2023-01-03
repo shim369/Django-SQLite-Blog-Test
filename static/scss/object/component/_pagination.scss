@@ -1,9 +1,9 @@
-.pagination {
+.c-pagination {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 60px;
-	.pagination-Item-Link {
+	&__link {
 	  width: 50px;
 	  height: 50px;
 	  display: flex;
@@ -17,12 +17,12 @@
 	  color: $base_color;
 	  font-weight: bold;
 	  transition: all .8s ease;
-	  &.isActive {
+	  &.is-active {
 		background: $base_color;
 		color: $gray2;
 		pointer-events: none;
 	  }
-	  &:not(.isActive):hover {
+	  &:not(.is-active):hover {
 		background: $base_color;
 		color: $gray2;
 	  }

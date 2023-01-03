@@ -1,117 +1,86 @@
 {% load static %}<!DOCTYPE html>
 <html lang="en">
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, minimum-scale=1">
-<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
 <title>TECH BLOG</title>
-<meta name="description" content="It's a blog that transmits web development and a part of life.">
+<meta property="og:title" content="TECH BLOG">
+<meta property="og:type" content="website">
+<meta property="og:description" content="TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.">
+<meta property="og:image" content="https://sohtani.pythonanywhere.com/media/icon-b.png">
+<meta property="og:url" content="https://sohtani.pythonanywhere.com/">
+<meta property="og:site_name" content="TECH BLOG">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="TECH BLOG">
+<meta name="twitter:title" content="TECH BLOG">
+<meta name="twitter:description" content="TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.">
+<meta name="twitter:image" content="https://sohtani.pythonanywhere.com/media/icon-b.png">
+<meta name="twitter:url" content="https://sohtani.pythonanywhere.com/">
+<meta name="description" content="TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.">
+<meta name="theme-color" content="#161719">
 <link rel="stylesheet" href="/static/css/index.css?{% now 'U' %}">
-<link rel="preconnect" href="https://code.jquery.com">
-<link rel="dns-prefetch" href="https://code.jquery.com">
-<link rel="canonical" href="">
+<link rel="preconnect" href="https://ajax.googleapis.com">
+<link rel="dns-prefetch" href="https://ajax.googleapis.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="canonical" href="https://sohtani.pythonanywhere.com/">
+<link rel="apple-touch-icon" href="/media/icon-s.png">
 <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
 <link rel="manifest" href="/static/json/manifest.json">
 </head>
 <body id="top">
-<div class="wrapper">
-{% include './_header.html' %}
-<main itemscope itemtype="https://schema.org/Blog">
-  <div itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-    <section class="mainv-sec">
-      <div class="container">
-      <div class="catch fade-up">
-        <h1><img src="/media/h1.svg" alt="WEB DEVELOPMENT AND LIFE BLOG" width="798" height="156"></h1>
-		<p>This is a blog where I output web technologies and tools I have learned in my daily life.<br>It is only a small amount of notes, so you will only get a hint or two,<br>but I hope you will visit here from time to time. Thank you from Japan.</p>
-      </div>
-      <div class="slide-wrap">
-        <div class="slide-box">
-          <picture class="current">
-			<source srcset="/media/1_sp.webp" media="(max-width:520px)" type="image/webp">
-			<source srcset="/media/1_sp.jpg" media="(max-width:520px)">
-			<source srcset="/media/1.webp" type="image/webp">
-			<img src="/media/1.jpg" alt="TECH BLOG slide1">
-          </picture>
-          <picture>
-			<source srcset="/media/2_sp.webp" media="(max-width:520px)" type="image/webp">
-			<source srcset="/media/2_sp.jpg" media="(max-width:520px)">
-			<source srcset="/media/2.webp" type="image/webp">
-			<img src="/media/2.jpg" alt="TECH BLOG slide2">
-          </picture>
-        </div>
-      </div>
-    </div>
-    </section>
-    <div class="blog-sec">
-      <div class="container">
-        <p class="blog-title">BLOG</p>
-        <div class="container-inner">
-        <article>
-          <ul itemprop="articleBody" class="blog-card-list">
-            {% for article in articles %}
-            <li class="blog-card">
-              <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="blog-card-img">
-                <a href="{% url 'bbs:detail' article.slug %}" title="">
-                <picture>
-                  <source srcset="/media/{{ article.tag_image }}.webp" type="image/webp" width="280" height="150">
-                  <img src="/media/{{ article.tag_image }}.jpg" width="280" height="150" itemprop="url" alt="">
-                  </picture>
-                </a>
-              </div>
-              <div class="blog-card-inner">
-                <div class="category en">{{ article.category }}</div>
-                <time datetime="{{ article.created_at|date:'Y-m-d' }}" itemprop="datePublished"><i class="icon-clock2"></i>{{ article.created_at|date:"Y/m/d" }}</time>
-                <h2 itemprop="name headline"><a href="{% url 'bbs:detail' article.slug %}" title="{{ article.title }}" itemprop="url">{{ article.title }}</a></h2>
-                <p itemprop="description"><a href="{% url 'bbs:detail' article.slug %}">{{ article.description| truncatechars:60 }}
-                <span class="btn">READ MORE<i class="icon-circle-right"></i></span></a></p>
-              </div>
-            </li>
-            {% endfor %}
-          </ul>
-        <ul class="pagination">
-          {% if page_obj.has_previous %}
-          <li class="pagination-Item">
-              <a class="pagination-Item-Link" href="?page={{ page_obj.previous_page_number }}">PREV</a>
-          </li>
-          {% endif %} 
-        {% for num in page_obj.paginator.page_range %}
-          {% if page_obj.number == num %}
-          <li class="pagination-Item">
-            <a href="?page={{ num }}" class="pagination-Item-Link isActive"><span>{{ num }}</span></a>
-          </li>
-          {% else %}
-          <li class="pagination-Item">
-              <a href="?page={{ num }}" class="pagination-Item-Link"><span>{{ num }}</span></a>
-          </li>
-          {% endif %}
-        {% endfor %}
-        {% if page_obj.has_next %}
-        <li class="pagination-Item">
-            <a class="pagination-Item-Link" href="?page={{ page_obj.next_page_number }}">NEXT</a>
-        </li>
-        {% endif %}
-        </ul>
-        </article>
-        {% include './_aside.html' %}
-      </div>
-          
-      <div class="breadcrumb-box">
-        <ol class="breadcrumb">
-          <li>
-            <a href="{% url 'bbs:index' %}">
-                <i class="icon-home3"></i>HOME
-            </a>
-          </li>
-        </ol>
-        </div>
-      </div>
-    </div>
-    {% include './_author.html' %}
-  </div>
+<div class="l-wrapper">
+{% include './include/l_header.html' %}
+<main class="l-main">
+	<section class="p-hero">
+		<div class="p-hero__container">
+			<div class="p-hero__catch fade-up">
+			<h1 class="p-hero__h1"><img src="/media/h1.svg" width="798" height="156" alt="WEB DEVELOPMENT AND LIFE BLOG"></h1>
+			<p class="p-hero__text">This is a blog where I output web technologies and tools I have learned in my daily life.<br>It is only a small amount of notes, so you will only get a hint or two,<br>but I hope you will visit here from time to time. Thank you from Japan.</p>
+			</div>
+			<div class="p-hero__slide-wrap">
+				<div class="p-hero__slide-box">
+					<picture class="p-hero__picture current">
+						<source srcset="/media/1_sp.webp" media="(max-width:520px)" type="image/webp">
+						<source srcset="/media/1_sp.jpg" media="(max-width:520px)">
+						<source srcset="/media/1.webp" type="image/webp">
+						<img src="/media/1.jpg" alt="TECH BLOG slide1" width="750" height="520">
+					</picture>
+					<picture class="p-hero__picture">
+						<source srcset="/media/2_sp.webp" media="(max-width:520px)" type="image/webp">
+						<source srcset="/media/2_sp.jpg" media="(max-width:520px)">
+						<source srcset="/media/2.webp" type="image/webp">
+						<img src="/media/2.jpg" alt="TECH BLOG slide2" width="750" height="520">
+					</picture>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="l-contents">
+		<div class="l-container">
+		<p class="l-contents__title">BLOG</p>
+		<div class="l-container__inner">
+		<article class="l-article u-bg-none">
+			{% include './include/c_card.html' %}
+			{% include './include/c_pagination.html' %}
+		</article>
+		{% include './include/l_aside.html' %}
+		</div>
+		<ol class="c-breadcrumbs">
+			<li class="c-breadcrumbs__item">
+			<a href="{% url 'bbs:index' %}">
+				<i class="icon-home3"></i>HOME
+			</a>
+			</li>
+		</ol>
+		</div>
+	</div>
+	{% include './include/l_author.html' %}
 </main>
-{% include './_footer.html' %}
+{% include './include/l_footer.html' %}
 </div>
-<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
 window.addEventListener('load', () => {
 function play() {
@@ -125,7 +94,7 @@ function play() {
 		play();
 	},3000);
 }
-const images = document.querySelectorAll('.slide-box picture');
+const images = document.querySelectorAll('.p-hero__picture');
 let currentIndex = 0;
 play();
 
@@ -135,17 +104,16 @@ let isTabletSize = (windowWidth > breakPointA);
 if(isTabletSize){
 	$(function(){
 		let h = 0;
-		$(".blog-card-inner h2").each(function(){
+		$(".c-card__title").each(function(){
 			if($(this).height() > h) {
 				h = $(this).height();
 			}
 		});
-		$(".blog-card-inner h2").css("height", h + "px");
+		$(".c-card__title").css("height", h + "px");
 	});
 }
 }, false);
 </script>
-<script defer src="/static/js/main.js?{% now 'U' %}"></script>
 <script>
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', function() {
@@ -156,7 +124,16 @@ if ('serviceWorker' in navigator) {
 	});
 }
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "home","url": "https://sohtani.pythonanywhere.com/"},{"@type": "SearchResultsPage","name": "{{ article.category.name }}","url": "https://sohtani.pythonanywhere.com/category/{{ article.category.name }}"},{"@type": "SearchResultsPage","name": "github","url": "https://github.com/shim369"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"item": {"@id": "https://sohtani.pythonanywhere.com/","name": "home"}},{"@type": "ListItem","position": 2,"item": {"@id": "https://sohtani.pythonanywhere.com/category/{{ category.name }}/","name": "{{ article.category.name }}"}}]}</script>
-</body>
+<script defer src="/static/js/main.js?{% now 'U' %}"></script>
+<script type="application/ld+json">[{"@context": "https://schema.org","@type": "SiteNavigationElement","hasPart": [{"@type": "WebPage","name": "HOME","url": "https://sohtani.pythonanywhere.com/"},{"@type": "CollectionPage","name": "PYTHON","url": "https://sohtani.pythonanywhere.com/category/python/"},{"@type": "CollectionPage","name": "TOOL","url": "https://sohtani.pythonanywhere.com/category/tool/"},{"@type": "WebPage","name": "FITNESS","url": "https://sohtani.pythonanywhere.com/fitness/"},{"@type": "ContactPage","name": "CONTACT","url": "https://sohtani.pythonanywhere.com/contact/"},{"@type": "WebPage","name": "GitHub","url": "https://github.com/shim369"}]}]</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "Blog","blogPost": [{"@type": "BlogPosting","headline": "WEB DEVELOPMENT AND LIFE BLOG","description": "TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.","url": "https://sohtani.pythonanywhere.com/","mainEntityOfPage": {"@type":"WebPage","@id":"https://sohtani.pythonanywhere.com/"},"datePublished": "2022-11-04","image": {"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/logo.jpg","width": "254","height": "83"},"author": {"@type": "Person","name": "S Ohtani","url": "https://github.com/shim369"},"publisher": {"@type": "Organization","name": "TECH BLOG","logo":{"@type": "ImageObject","url": "https://sohtani.pythonanywhere.com/media/logo.jpg","width": "254","height": "83"}}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"item": {"@id": "https://sohtani.pythonanywhere.com/","name": "home"}}]}</script>
+<!-- Google tag (gtag.js) -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-C4QW4L4G4R"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-C4QW4L4G4R');
+</script></body>
 </html>
