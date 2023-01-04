@@ -16,7 +16,7 @@
 <meta name="twitter:site" content="TECH BLOG">
 <meta name="twitter:title" content="TECH BLOG">
 <meta name="twitter:description" content="TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.">
-<meta name="twitter:image" content="https://sohtani.pythonanywhere.com/media/icon-b.png">
+<meta name="twitter:image" content="https://sohtani.pythonanywhere.com/media/og-image.png">
 <meta name="twitter:url" content="https://sohtani.pythonanywhere.com/">
 <meta name="description" content="{% if category %}{{ category.name }}{% endif %} | TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.">
 <meta name="theme-color" content="#161719">
@@ -90,7 +90,11 @@ gtag('config', 'G-C4QW4L4G4R');
 <script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script>
 window.addEventListener('load', () => {
-  $(function(){
+let windowWidth = window.innerWidth;
+let breakPoint = 520;
+let isSpSize = (windowWidth > breakPoint);
+if(isSpSize){
+	$(function(){
     let h = 0;
     $(".blog-card-inner h2").each(function(){
       if($(this).height() > h) {
@@ -99,6 +103,7 @@ window.addEventListener('load', () => {
     });
     $(".blog-card-inner h2").css("height", h + "px");
   });
+}
 }, false);
 </script>
 <script defer src="/static/js/main.js?{% now 'U' %}"></script>

@@ -15,7 +15,7 @@
 <meta name="twitter:site" content="TECH BLOG">
 <meta name="twitter:title" content="TECH BLOG">
 <meta name="twitter:description" content="TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.">
-<meta name="twitter:image" content="https://sohtani.pythonanywhere.com/media/icon-b.png">
+<meta name="twitter:image" content="https://sohtani.pythonanywhere.com/media/og-image.png">
 <meta name="twitter:url" content="https://sohtani.pythonanywhere.com/">
 <meta name="description" content="TECH BLOG is a blog that publishes web development and a part of life.In web development, Python, Django, Figma are the main categories.">
 <meta name="theme-color" content="#161719">
@@ -99,9 +99,9 @@ let currentIndex = 0;
 play();
 
 let windowWidth = window.innerWidth;
-let breakPointA = 800;
-let isTabletSize = (windowWidth > breakPointA);
-if(isTabletSize){
+let breakPoint = 520;
+let isSpSize = (windowWidth > breakPoint);
+if(isSpSize){
 	$(function(){
 		let h = 0;
 		$(".c-card__title").each(function(){
