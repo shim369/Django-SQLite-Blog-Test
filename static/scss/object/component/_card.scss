@@ -62,10 +62,10 @@
 		}
 		&__category {
 			position: absolute;
-			top: 0;
-			left: 0;
+			bottom: 0;
+			right: 0;
 			display: grid;
-			background: $base_color;
+			background: $square_light;
 			color: $gray2;
 			padding: 5px 10px;
 			font-family: $font_en;
@@ -81,7 +81,7 @@
 		}
 		&__time {
 			color: $base_color;
-			text-align: right;
+			text-align: left;
     		display: block;
 			i {
 				margin-right: 3px;
