@@ -5,12 +5,26 @@
 	z-index: 100;
 	width: 100%;
 	background: $base_color;
-	padding: 15px 0;
+	padding: 25px 0;
+	&__container {
+		max-width: 1400px;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 2%;
+		padding-right: 2%;
+	}
 	@media screen and (max-width: 800px) {
 		padding: 20px 0;
 	}
 	@media screen and (max-width: 520px) {
 		position: relative;
+	}
+	&__left {
+		display: flex;
+		align-items: center;
 	}
 	&__logo {
 		display: inherit;
@@ -30,7 +44,6 @@
 	&__icons {
 		display: flex;
 		justify-content: flex-end;
-		margin-right: 5px;
 		@media screen and (max-width: 800px) {
 			display: none;
 		}
@@ -57,6 +70,7 @@
 	}
 	&__nav {
 		position: relative;
+		margin-left: 40px;
 		@media screen and (max-width: 800px) {
 			display: none;
 		}
