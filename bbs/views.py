@@ -95,8 +95,9 @@ def chart_data(request):
 	# pngDate = str(worksheet.col_values(1)[-1])
 	# pngDateTime = pngDate.replace('/', '-')
 	# with plt.style.context('Solarize_Light2'):
-	# plt.rcParams["figure.figsize"] = (10,10)
-	# plt.xticks(rotation=90, size='small')
+	# plt.rcParams["figure.figsize"] = (10,5)
+	# plt.ylim(70, 84)
+	# plt.xticks(size='small')
 	# plt.plot(data['date'],data['weight'].astype('float'),marker = "o", color = "#4e3b2f")
 	# plt.title('Weight Graph')
 	# plt.xlabel('Date')
